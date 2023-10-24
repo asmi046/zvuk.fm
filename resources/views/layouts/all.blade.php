@@ -49,7 +49,7 @@
         </section>
 
 
-
+        <x-footer></x-footer>
     </main>
 
 </body>

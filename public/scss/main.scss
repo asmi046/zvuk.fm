@@ -20,6 +20,10 @@ section {
 ._container {
     width: 1440px;
     margin: auto;
+
+    @media screen and (max-width: 1440px) {
+        width: 96%;
+    }
 }
 
 .btn {
@@ -69,5 +73,6 @@ section {
 
 @import "mobile-menu";
 @import "header";
+@import "dictor-vidget";
 @import "footer";
 @import "index";

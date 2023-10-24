@@ -36,6 +36,9 @@
             <div class="_container sidebar_section">
 
                 <div class="sidebar_section__content">
+                    <pre>
+                        {{ var_dump($schedule_tomorrow)}}
+                    </pre>
                     @yield('main')
                 </div>
 
@@ -44,6 +47,11 @@
                         <a href="#" class="clr_btn redbtn">Оформить On-line заказ</a>
                         <a href="#" class="clr_btn graybtn">Ваши файлы</a>
                     </div>
+
+
+                    <x-dictor-vidget.main name="Актеры на сегодня" :data="$schedule_today"></x-dictor-vidget.main>
+                    <x-dictor-vidget.main name="Актеры на завтра" :data="$schedule_tomorrow"></x-dictor-vidget.main>
+
                 </div>
             </div>
         </section>

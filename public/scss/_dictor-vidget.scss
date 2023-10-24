@@ -1,0 +1,84 @@
+.dictors_vidget {
+    min-width: 300px;
+    padding: 20px;
+    background-color: $mgray;
+    border-radius: $brad20;
+    margin: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+
+    h2{
+        margin-top: 0;
+    }
+
+    .data {
+        background-color: white;
+        padding: 10px 15px;
+        display: block;
+        border-radius: $brad10;
+        border:1px solid $msgray;
+        margin-bottom: 20px;
+    }
+
+    .table{
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid $msgray;
+
+            span {
+                margin: 5px 0;
+            }
+
+            span:first-child {
+                width:38%
+            }
+
+            span:nth-child(2) {
+                width:38%
+            }
+
+            span:last-child {
+                width:15%;
+                text-align: right;
+                margin-left:auto;
+            }
+
+            span.status {
+                padding-left: 15px;
+                position: relative;
+
+                &:before{
+                    content: "";
+                    width:8px;
+                    height: 8px;
+                    border-radius: 10px;
+                    background-color: $msgray;
+                    position: absolute;
+                    left: 0;
+                    top: calc(50% - 4px);
+                }
+            }
+
+            span.active:before {
+                content: "";
+                background-color: #7fff00;
+            }
+
+            span.no_active:before {
+                content: "";
+                background-color: red;
+            }
+
+        }
+
+        .row:last-child {
+            border-bottom: none;
+        }
+    }
+}

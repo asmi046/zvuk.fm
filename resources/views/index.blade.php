@@ -9,6 +9,10 @@
 @section('description', $description)
 
 @section('main')
-    <h1>Тест</h1>
+
+    <div class="main_bnr">
+        <img src="{{asset('../img/main_bnr.webp')}}" alt="">
+    </div>
+
 @endsection
 

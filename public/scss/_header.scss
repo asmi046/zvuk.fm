@@ -1,0 +1,95 @@
+.header {
+    display: flex;
+    padding: 20px 0;
+    flex-direction: column;
+    font-size: 18px;
+
+    &_row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+
+    .logo{
+        display: block;
+        width: 317px;
+        height: auto;
+        margin: auto auto auto 0;
+    }
+
+    &__menu-list {
+        display: flex;
+        flex-wrap: wrap;
+        width: 55%;
+        justify-content: space-between;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin: 0 20px;
+
+            &:hover{
+                color: $mdarkred;
+            }
+
+            &:hover span{
+                background-color: $mdarkred;
+                transition: all 0.3s ease 0s;
+            }
+
+            span {
+                display: block;
+                width: 67px;
+                height: 67px;
+                background-color: $mred;
+                border-radius: 50px;
+                margin: 0 auto 10px auto;
+                background-position: center;
+                background-size: 45%;
+                background-repeat: no-repeat;
+            }
+
+            ._audioroliki {
+                background-image: url(../img/icons/audioroliki.svg);
+            }
+
+            ._dictors {
+                background-image: url(../img/icons/diktors.svg);
+            }
+
+            ._chrono {
+                background-image: url(../img/icons/chrono.svg);
+            }
+
+            ._pay {
+                background-image: url(../img/icons/oplata.svg);
+            }
+
+            ._contacts {
+                background-image: url(../img/icons/contacts.svg);
+            }
+        }
+    }
+
+    .bottom_row {
+        margin-top: 20px;
+
+        .buttons-header__btn {
+            flex: 0 1 100%;
+            background: $mpurp;
+            transition: all 0.3s ease 0s;
+            margin-right: 20px;
+        }
+
+        .buttons-header__btn:last-child {
+            margin-right: 0;
+        }
+    }
+
+
+
+
+
+}

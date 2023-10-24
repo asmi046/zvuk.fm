@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Models\Option;
 
 use App\Services\StudioSystemSevice;
+use App\Services\ScheduleFileSevice;
 
 use View;
 
@@ -40,12 +41,25 @@ class OptionsProvider extends ServiceProvider
                 }
                 View::share('options', $opt);
 
-                $studio = new StudioSystemSevice();
+                $studio = new ScheduleFileSevice();
 
-            //  dd($studio->get_schedule());
+                $today = $studio->get_schedule();
+                $tomorrow = $studio->get_schedule("tomorrow");
 
-                View::share('schedule_today', $studio->get_schedule());
-                View::share('schedule_tomorrow', $studio->get_schedule("tomorrow"));
+                if (empty($today) || empty($tomorrow)) {
+                    $studio = new StudioSystemSevice();
+
+                    $today = $studio->get_schedule();
+                    $tomorrow = $studio->get_schedule("tomorrow");
+                }
+
+
+                // dd($today);
+
+
+
+                View::share('schedule_today', $today);
+                View::share('schedule_tomorrow', $tomorrow);
 
             } catch (Exception $e) {
                 View::share('options', []);

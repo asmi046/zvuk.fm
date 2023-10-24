@@ -36,9 +36,6 @@
             <div class="_container sidebar_section">
 
                 <div class="sidebar_section__content">
-                    <pre>
-                        {{ var_dump($schedule_tomorrow)}}
-                    </pre>
                     @yield('main')
                 </div>
 

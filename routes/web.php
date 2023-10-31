@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\EasyPageController;
+use App\Http\Controllers\UserFileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,4 @@ use App\Http\Controllers\EasyPageController;
 
 Route::get('/', [IndexController::class, "index"])->name('home');
 Route::get('/contacts', [EasyPageController::class, "cantacts"])->name('cantacts');
+Route::get('/user-file', [UserFileController::class, "index"])->name('user-file');

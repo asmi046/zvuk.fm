@@ -42,7 +42,7 @@
                 <div class="sidebar_section__sidebar">
                     <div class="sidebar_btn">
                         <a href="#" class="clr_btn redbtn">Оформить On-line заказ</a>
-                        <a href="#" class="clr_btn graybtn">Ваши файлы</a>
+                        <a href="{{route("user-file")}}" class="clr_btn graybtn">Ваши файлы</a>
                     </div>
 
 

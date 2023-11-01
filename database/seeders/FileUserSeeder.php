@@ -17,40 +17,45 @@ class FileUserSeeder extends Seeder
         DB::table("file_users")->insert(
             [
                 [
-                    "uid" => 1,
+                    "uid" => 549,
                     "name" => "rp4PEERE",
                     'comment' => 'Суперадмин',
 
                 ],
                 [
-                    "uid" => 2,
+                    "uid" => 17,
                     "name" => "tele2kalinin",
                     'comment' => 'Теле 2 Калининград',
                 ],
                 [
-                    "uid" => 3,
+                    "uid" => 632,
                     "name" => "tele2petr",
                     'comment' => 'Теле 2 Петрозаводск',
                 ],
                 [
-                    "uid" => 4,
+                    "uid" => 317,
                     "name" => "tsoka",
                     'comment' => 'Жигмытов Цокто Улан Удэ',
                 ],
                 [
-                    "uid" => 5,
+                    "uid" => 602,
                     "name" => "novoch37",
                     'comment' => 'Новочеркасск 37 канал',
                 ],
                 [
-                    "uid" => 6,
+                    "uid" => 316,
                     "name" => "tele2tula",
                     'comment' => 'Теле 2 Тула',
                 ],
                 [
-                    "uid" => 7,
+                    "uid" => 351,
                     "name" => "tele2tver",
                     'comment' => 'Теле 2 Тверь',
+                ],
+                [
+                    "uid" => 77,
+                    "name" => "zvuktest77",
+                    'comment' => 'Админ для просмотра всех файлов',
                 ],
             ]
         );

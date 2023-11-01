@@ -1,0 +1,22 @@
+form {
+
+    *{
+        outline: none;
+        border:none
+    }
+
+    button {
+        outline: none;
+        background-color: $msgray;
+        color: white;
+        padding: 10px 30px;
+        border-radius: $brad10;
+        border: 1px solid $msgray;
+    }
+
+    input {
+        border: 1px solid $msgray;
+        padding: 10px 15px;
+        border-radius: $brad10;
+    }
+}

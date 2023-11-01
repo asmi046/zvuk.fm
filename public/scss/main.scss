@@ -1,6 +1,7 @@
 @import "vars";
 @import "null";
 @import "fonts";
+@import "form-component";
 
 $greencolor: #7eaf00;
 $graycolor: #f9f9fd;
@@ -70,9 +71,43 @@ section {
         margin-left: 30px
     }
 }
+.download_btn{
+    background-color: $mred;
+    color:white!important;
+    padding: 7px 20px 7px 40px;
+    border-radius: $brad10;
+    position: relative;
+
+    &:hover{
+        text-decoration: none!important;
+        background-color: $mdarcred;
+    }
+
+    &:before{
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        left: 10px;
+        top:calc(50% - 9px);
+        background-image: url(../img/icons/download.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+    }
+
+    &:hover::before{
+        width: 20px;
+        height: 20px;
+        left: 9px;
+        top:calc(50% - 10px);
+    }
+}
 
 @import "mobile-menu";
 @import "header";
 @import "dictor-vidget";
 @import "footer";
 @import "index";
+@import "file-list";

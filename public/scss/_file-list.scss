@@ -1,0 +1,19 @@
+.files_line{
+    display: grid;
+    grid-template-columns: 60% 13% 13% 14%;
+    border-bottom: 1px dotted $mgray;
+
+    a {
+        color: $mred;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+    .col{
+        padding: 10px 0;
+        span{
+            display: none;
+        }
+    }
+}

@@ -26,20 +26,6 @@ class OptionSeeder extends Seeder
                 ],
 
                 [
-                    "name" => "about_page_text",
-                    "type" => "rich",
-                    'title' => 'Текст для страницы о портале',
-                    "value" => file_get_contents(public_path('test//about_page.txt')),
-                ],
-
-                [
-                    "name" => "material_page_text",
-                    "type" => "rich",
-                    'title' => 'Текст для страницы материалов',
-                    "value" => file_get_contents(public_path('test//materials_page.txt'))
-                ],
-
-                [
                     "name" => "phone",
                     "type" => "plan",
                     'title' => 'Телефон',

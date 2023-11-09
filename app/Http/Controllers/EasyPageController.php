@@ -15,4 +15,8 @@ class EasyPageController extends Controller
     public function cantacts() {
         return view('contacts');
     }
+
+    public function chrono() {
+        return view('chrono');
+    }
 }

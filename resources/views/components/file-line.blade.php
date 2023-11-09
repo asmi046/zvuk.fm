@@ -1,7 +1,7 @@
 <div class="files_line">
     <div class="col">
         <span>Файл</span>
-        <a href="{{$item["href"]}}">{{$item["src_name"]}}</a>
+        <a href="{{$item["href"]}}">{{$item["clear_name"]}}</a>
     </div>
 
     <div class="col">

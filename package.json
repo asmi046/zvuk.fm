@@ -6,9 +6,16 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "axios": "^1.1.2",
+        "axios": "^1.6.0",
         "laravel-vite-plugin": "^0.8.0",
         "sass": "^1.69.4",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "@vitejs/plugin-vue": "^4.4.0",
+        "jquery": "^3.7.1",
+        "v-slim-mask": "^1.0.24",
+        "vue": "^3.3.7",
+        "vue-axios": "^3.5.2"
     }
 }

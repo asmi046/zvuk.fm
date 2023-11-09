@@ -1,0 +1,12 @@
+.chrono_form {
+    display: flex;
+    flex-direction: column;
+    .area{
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    textarea {
+        width: 100%;
+    }
+}

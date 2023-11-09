@@ -24,13 +24,18 @@
     <link rel="icon" type="image/svg" href="{{asset('/img/favicons/fav.svg')}}" sizes="any">
 
 
-    @vite(['resources/css/app.css', 'public/scss/main.scss','resources/js/app.js'])
+    @vite([
+        'resources/css/app.css',
+        'public/scss/main.scss',
+        'resources/js/app.js',
+        'public/js/main.js'
+    ])
 </head>
 <body>
 
     <main id="main">
 
-        <x-header></x-header>
+        <x-header.main></x-header.main>
 
         <section class="main_section">
             <div class="_container sidebar_section">
@@ -40,11 +45,8 @@
                 </div>
 
                 <div class="sidebar_section__sidebar">
-                    <div class="sidebar_btn">
-                        <a href="#" class="clr_btn redbtn">Оформить On-line заказ</a>
-                        <a href="{{route("user-file")}}" class="clr_btn graybtn">Ваши файлы</a>
-                    </div>
 
+                    <x-sidebar-btn></x-sidebar-btn>
 
                     <x-dictor-vidget.main name="Актеры на сегодня" :data="$schedule_today"></x-dictor-vidget.main>
                     <x-dictor-vidget.main name="Актеры на завтра" :data="$schedule_tomorrow"></x-dictor-vidget.main>

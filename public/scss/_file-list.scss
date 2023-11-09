@@ -17,3 +17,26 @@
         }
     }
 }
+
+
+@media screen and (max-width:1024px) {
+    .files_line {
+        grid-template-columns: 55% 13% 13% 19%;
+        .col {
+            overflow-wrap: anywhere;
+        }
+    }
+}
+
+@media screen and (max-width:480px) {
+    .files_line {
+        grid-template-columns: 100% ;
+    }
+
+    .files_line {
+        background-color: $mgray;
+        padding: 20px;
+        border-radius: $brad10;
+        margin-bottom: 20px;
+    }
+}

@@ -1,3 +1,75 @@
+// Боковое меню
 .mob-menu {
-    display: none;
+	// visibility: hidden;
+	position: fixed;
+	z-index: 4500;
+	top: 0;
+	right: -100%;
+	width: 50%;
+	height: 100%;
+	padding: 60px 15px 0px 15px;
+	// background: rgba(0, 0, 0, 0.8);
+	background: #fff;
+
+	-webkit-transition: right 0.8s;
+	-o-transition: right 0.8s;
+	margin-top: 30px;
+	transition: right 0.8s;
+	overflow: auto;
+
+    h2{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+
+.mob-menu.active {
+	// visibility: visible;
+	right: 0%;
+    box-shadow: 0px 3px 5px 0px black;
+}
+
+//----------------------------
+
+.mob-menu {
+    .header__menu-list {
+        width:unset;
+        justify-content: end;
+        li {
+            width:33%;
+
+            a{
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .header_row {
+        flex-direction: column;
+        .btn {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media screen and (max-width:480px) {
+    .mob-menu {
+        width:calc(100% - 30px)
+    }
+}
+
+
+@media screen and (max-width:375px) {
+    .mob-menu .header__menu-list li {
+        width: 48%;
+    }
+    .mob-menu .header__menu-list {
+        justify-content: center;
+    }
+
+    .mob-menu {
+        height: calc(100% - 120px);
+        padding: 40px 15px 80px 15px;
+    }
 }

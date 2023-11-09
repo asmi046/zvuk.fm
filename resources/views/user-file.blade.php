@@ -12,7 +12,7 @@
 
     <h1>{{$title}}</h1>
 
-    <form action="{{route("user-file")}}" method="GET">
+    <form class="user_files_form" action="{{route("user-file")}}" method="GET">
         <input type="text" name="login" placeholder="Введите логин" value="{{old('login')}}">
         <button type="submit">Показать файлы</button>
     </form>

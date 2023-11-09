@@ -16,6 +16,8 @@
         width: 317px;
         height: auto;
         margin: auto auto auto 0;
+
+
     }
 
     &__menu-list {
@@ -70,6 +72,8 @@
             ._contacts {
                 background-image: url(../img/icons/contacts.svg);
             }
+
+
         }
     }
 
@@ -88,8 +92,44 @@
         }
     }
 
+}
 
 
+@media screen and (max-width: 1024px) {
+    .header__menu-list a {
+        margin: 0 10px;
+    }
 
+    .header__menu-list {
+        width: 60%;
+    }
+}
 
+@media screen and (max-width: 768px) {
+    .header {
+        position: fixed;
+        z-index: 5000;
+        width: 100%;
+        background-color: white;
+    }
+
+    .main_section {
+        padding-top: 80px;
+    }
+
+    .header .bottom_row,
+    .header .header__menu-list {
+        display: none;
+    }
+
+    .header {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 10px 0;
+        .logo {
+            width:150px;
+            img {
+                width: 100%;
+            }
+        }
+    }
 }

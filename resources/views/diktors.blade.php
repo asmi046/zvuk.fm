@@ -9,7 +9,7 @@
 @section('description', $description)
 
 @section('main')
-
+    <x-breadcrumbs :title="$title"></x-breadcrumbs>
     <h1>{{$title}}</h1>
 
 @endsection

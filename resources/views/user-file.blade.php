@@ -9,7 +9,7 @@
 @section('description', $description)
 
 @section('main')
-
+    <x-breadcrumbs :title="$title"></x-breadcrumbs>
     <h1>{{$title}}</h1>
 
     <form class="user_files_form" action="{{route("user-file")}}" method="GET">

@@ -9,7 +9,7 @@
 @section('description', $description)
 
 @section('main')
-
+    <x-breadcrumbs :title="$title"></x-breadcrumbs>
     <h1>{{$title}}</h1>
     <div class="text_styles">
         <h2><a href="tel:+7{{phone_format($options['phone'])}}">{{$options['phone']}}</a></h2>

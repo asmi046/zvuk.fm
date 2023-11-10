@@ -1,6 +1,15 @@
 .footer {
 	padding: 30px 0;
 	background: #575556;
+    color: #fff;
+    text-align: center;
+
+    a{
+        color: #fff;
+    }
+    .policy {
+        margin-bottom: 0;
+    }
 
 	// .footer__container
 	&__container {

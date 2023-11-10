@@ -2,4 +2,22 @@
     a{
         color:$mdarcred
     }
+
+    ul{
+        li{
+            padding-left:30px;
+            margin: 5px 0;
+            position: relative;
+        }
+
+        li:before{
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            left:10px;
+            top:5px;
+            background-color: $mdarcred;
+        }
+    }
 }

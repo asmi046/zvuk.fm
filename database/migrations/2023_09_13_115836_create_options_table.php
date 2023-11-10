@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
+            $table->string('page')->nullable();
             $table->string('type')->default('plan');
             $table->string('title');
             $table->text('value');

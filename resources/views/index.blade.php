@@ -10,9 +10,7 @@
 
 @section('main')
 
-    <div class="main_bnr">
-        <img src="{{asset('../img/main_bnr.webp')}}" alt="">
-    </div>
+    <x-page-banner name="main_bnr.webp"></x-page-banner>
 
     <div class="main_text_sb">
         <div class="sb">

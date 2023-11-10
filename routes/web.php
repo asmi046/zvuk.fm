@@ -26,6 +26,7 @@ Route::get('/how-start-work', [EasyPageController::class, "hove_work"])->name('h
 Route::get('/preimushestva', [EasyPageController::class, "advantages"])->name('advantages');
 Route::get('/prognoz-pogodi', [EasyPageController::class, "pogoda"])->name('pogoda');
 Route::get('/golosovie_privetstviya', [EasyPageController::class, "privet"])->name('privet');
+Route::get('/policy', [EasyPageController::class, "policy"])->name('policy');
 
 
 Route::get('/audioroliki', [AudiofileController::class, "index"])->name('roliki');

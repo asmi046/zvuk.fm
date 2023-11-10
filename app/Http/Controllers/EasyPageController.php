@@ -43,4 +43,5 @@ class EasyPageController extends Controller
     public function pay() {
         return view('pay');
     }
+
 }

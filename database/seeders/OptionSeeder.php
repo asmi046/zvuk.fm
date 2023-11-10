@@ -19,60 +19,58 @@ class OptionSeeder extends Seeder
         DB::table("options")->insert(
             [
                 [
-                    "name" => "head_text",
-                    "type" => "rich",
-                    'title' => 'Текст в шапке сайта',
-                    "value" => "Официальный сайт для размещения информации о подготовке исполнительными органами Курской области проектов нормативных правовых актов и результатах их общественного обсуждения, а также для официального опубликовавния принятых нормативых правовых актов",
-                ],
-
-                [
                     "name" => "phone",
+                    "page" => "Контакты",
                     "type" => "plan",
                     'title' => 'Телефон',
-                    "value" => "+7 (101) 001 01 01",
+                    "value" => "+7 (920) 712-15-22",
                 ],
-
                 [
-                    "name" => "phone_metod",
+                    "name" => "phone2",
+                    "page" => "Контакты",
                     "type" => "plan",
-                    'title' => 'Телефон методологической поддержки',
-                    "value" => "+7 (222) 002 02 02",
+                    'title' => 'Телефон',
+                    "value" => "+7 (4712) 53-33-60",
                 ],
 
                 [
                     "name" => "email",
+                    "page" => "Контакты",
                     "type" => "plan",
-                    'title' => 'e-mail',
-                    "value" => "info@npa.kursk.ru",
+                    'title' => 'email',
+                    "value" => "zakaz@zvuk.fm",
                 ],
 
                 [
-                    "name" => "rang",
-                    "type" => "plan",
-                    'title' => 'Оценка деятельности портала',
-                    "value" => "Хороший",
+                    "name" => "policy",
+                    "type" => "rich",
+                    "page" => "",
+                    'title' => 'Политика конфиденциальности',
+                    "value" => file_get_contents(public_path('test//policy.html')),
                 ],
 
                 [
-                    "name" => "rang_year",
-                    "type" => "plan",
-                    'title' => 'Год оценки деятельности портала',
-                    "value" => "2022",
+                    "name" => "privet_text",
+                    "type" => "rich",
+                    "page" => "Голосовое приветствие",
+                    'title' => 'Текст со страницы голоыовое приветствие',
+                    "value" => file_get_contents(public_path('test//privet.html')),
+                ],
+                [
+                    "name" => "meteo_text",
+                    "type" => "rich",
+                    "page" => "Прогноз погоды",
+                    'title' => 'Текст со страницы прогноз погоды',
+                    "value" => file_get_contents(public_path('test//meteo.html')),
+                ],
+                [
+                    "name" => "work_text",
+                    "type" => "rich",
+                    "page" => "Как начать работать",
+                    'title' => 'Текст со страницы Как начать работать',
+                    "value" => file_get_contents(public_path('test//work.html')),
                 ],
 
-                [
-                    "name" => "main_title",
-                    "type" => "plan",
-                    'title' => 'Title главной страницы',
-                    "value" => "Портал правовой информации Курской области",
-                ],
-
-                [
-                    "name" => "main_description",
-                    "type" => "plan",
-                    'title' => 'Description главной страницы',
-                    "value" => "Официальный сайт для размещения информации о подготовке исполнительными органами Курской области проектов нормативных правовых актов и результатах их общественного обсуждения",
-                ],
             ]);
     }
 }

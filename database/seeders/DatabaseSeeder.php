@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             OptionSeeder::class,
+            MainPageSeeder::class,
             DiktorSeeder::class,
             FileUserSeeder::class,
             AudiofileSeeder::class,

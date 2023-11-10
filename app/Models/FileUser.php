@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class FileUser extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'uid',
+        'name',
+        'comment',
+    ];
 }

@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Price extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'diktor_id',
+        'start',
+        'finish',
+        'cost',
+        'system_cost',
+        'sample_cost',
+        'ivr_cost',
+        'dop_cost',
+    ];
 }

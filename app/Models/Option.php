@@ -18,6 +18,7 @@ class Option extends Model
     protected $fillable = [
         'name',
         'title',
+        'page',
         'value',
         'type',
     ];

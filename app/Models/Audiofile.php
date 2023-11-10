@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Audiofile extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'file',
+        'type',
+        'price',
+    ];
 }

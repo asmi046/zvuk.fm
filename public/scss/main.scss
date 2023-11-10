@@ -2,6 +2,7 @@
 @import "null";
 @import "fonts";
 @import "form-component";
+@import "text-style";
 
 $greencolor: #7eaf00;
 $graycolor: #f9f9fd;
@@ -128,9 +129,79 @@ h1{
     }
 }
 
-@media screen and (max-width:1024px) {
-
+.snoska {
+    font-size: 12px;
 }
+
+
+
+
+
+
+
+.rolik_line{
+    display: grid;
+    grid-template-columns: 20% 70% 10%;
+    margin-bottom: 20px;
+    * {
+        display: flex;
+        span{
+            width: 100%;
+            display: block;
+            margin-top:auto;
+            margin-bottom:auto;
+        }
+
+        @media screen and (max-width:480px) {
+            margin: 5px 0;
+        }
+    }
+    .rolik{
+        audio{
+            width:100%;
+        }
+    }
+
+    .price{
+        text-align: right;
+
+        @media screen and (max-width:480px) {
+            text-align: left;
+        }
+    }
+
+    @media screen and (max-width:480px) {
+        grid-template-columns: 100%;
+        background-color: $mgray;
+        padding: 20px;
+        border-radius: $brad10;
+    }
+}
+
+.price_line {
+    background-color: $mgray;
+    padding: 18px 30px;
+    display: grid;
+    grid-template-columns: 44% 28% 28%;
+    border-radius: $brad10;
+    * span {
+        color:$mdarcred;
+        font-weight: bold;
+    }
+    .m30, .b30{
+        text-align: right;
+        @media screen and (max-width:480px) {
+            text-align: left;
+            margin-top: 10px;
+        }
+    }
+
+    @media screen and (max-width:480px) {
+        grid-template-columns: 100%;
+    }
+}
+
+
 
 @media screen and (max-width:768px) {
     .sidebar_section {

@@ -36,9 +36,7 @@ class EasyPageController extends Controller
         return view('privet');
     }
 
-    public function diktors() {
-        return view('diktors');
-    }
+
 
     public function pay() {
         return view('pay');

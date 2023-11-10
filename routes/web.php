@@ -5,6 +5,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\EasyPageController;
 use App\Http\Controllers\UserFileController;
 use App\Http\Controllers\AudiofileController;
+use App\Http\Controllers\DiktorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::get('/policy', [EasyPageController::class, "policy"])->name('policy');
 
 
 Route::get('/audioroliki', [AudiofileController::class, "index"])->name('roliki');
-Route::get('/dictori', [EasyPageController::class, "diktors"])->name('diktors');
+Route::get('/dictori', [DiktorController::class, "index"])->name('diktors');
 Route::get('/oplata', [EasyPageController::class, "pay"])->name('pay');
 
 Route::get('/user-file', [UserFileController::class, "index"])->name('user-file');

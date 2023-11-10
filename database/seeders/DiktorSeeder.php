@@ -43,7 +43,9 @@ class DiktorSeeder extends Seeder
         $i = 1;
         foreach ($users as $item) {
 
-            Storage::disk('public')->put(basename($item['img']), file_get_contents("http://zvuk-fm.ru/".$item['img']), 'public');
+            if (!empty($item['img']))
+                Storage::disk('public')->put(basename($item['img']), file_get_contents("http://zvuk-fm.ru/".$item['img']), 'public');
+
             Storage::disk('public')->put(basename($item['sample']), file_get_contents("http://zvuk-fm.ru/".$item['sample']), 'public');
 
             if (!empty($item['irv']))
@@ -54,9 +56,9 @@ class DiktorSeeder extends Seeder
                 "order" => $i,
                 "description" => $item['description'],
                 "irv" => $item['is_ivr'],
-                "img" => Storage::url($item['img']),
-                "file" => Storage::url($item['sample']),
-                "file_irv" => !empty($item['irv'])?Storage::url($item['irv']):"",
+                "img" => (!empty($item['img']))?Storage::url(basename($item['img'])):"",
+                "file" => Storage::url(basename($item['sample'])),
+                "file_irv" => !empty($item['irv'])?Storage::url(basename($item['irv'])):"",
                 "gender" => $item['gender'],
 
             ]);

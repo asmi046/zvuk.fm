@@ -11,6 +11,10 @@
 @section('main')
     <x-breadcrumbs :title="$title"></x-breadcrumbs>
     <h1>{{$title}}</h1>
-
+    <div class="dictors_list">
+        @foreach ($diktors as $item)
+            <x-diktor-card :item="$item"></x-diktor-card>
+        @endforeach
+    </div>
 @endsection
 

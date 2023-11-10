@@ -38,6 +38,16 @@ class EasyPageController extends Controller
 
 
 
+    public function efir() {
+        return view('efir');
+    }
+
+    public function ozv_rolik() {
+        return view('ozv-rolik');
+    }
+
+
+
     public function pay() {
         return view('pay');
     }

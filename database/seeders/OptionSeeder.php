@@ -71,6 +71,30 @@ class OptionSeeder extends Seeder
                     "value" => file_get_contents(public_path('test//work.html')),
                 ],
 
+                [
+                    "name" => "diktors_text",
+                    "type" => "rich",
+                    "page" => "Дикторы",
+                    'title' => 'Текст со страницы Дикторы',
+                    "value" => file_get_contents(public_path('test//dictors.html')),
+                ],
+
+                [
+                    "name" => "ozv_rol_text",
+                    "type" => "rich",
+                    "page" => "Озвучка роликов",
+                    'title' => 'Текст со страницы Озвучка роликов',
+                    "value" => file_get_contents(public_path('test//ozv_rol_text.html')),
+                ],
+
+                [
+                    "name" => "efir_text",
+                    "type" => "rich",
+                    "page" => "Оформление эфира",
+                    'title' => 'Текст со страницы Оформление эфира',
+                    "value" => file_get_contents(public_path('test//efir.html')),
+                ],
+
             ]);
     }
 }

@@ -34,4 +34,7 @@ Route::get('/audioroliki', [AudiofileController::class, "index"])->name('roliki'
 Route::get('/dictori', [DiktorController::class, "index"])->name('diktors');
 Route::get('/oplata', [EasyPageController::class, "pay"])->name('pay');
 
+Route::get('/oformlenie_efira', [EasyPageController::class, "efir"])->name('efir');
+Route::get('/ozvuchka_videorolikov', [EasyPageController::class, "ozv_rolik"])->name('ozv_rolik');
+
 Route::get('/user-file', [UserFileController::class, "index"])->name('user-file');

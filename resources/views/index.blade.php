@@ -15,12 +15,12 @@
     <div class="main_text_sb">
         <div class="sb">
             <ul class="sb_menu">
-                <li><a href="#">Изготовление аудиороликов</a></li>
-                <li><a href="#">Дикторские голоса</a></li>
-                <li><a href="#">Радиоролики для торговых центров</a></li>
-                <li><a href="#">Голосовые приветствия</a></li>
-                <li><a href="#">Оформление эфира</a></li>
-                <li><a href="#">Озвучка видео роликов</a></li>
+                <li><a href="{{route('roliki')}}">Изготовление аудиороликов</a></li>
+                <li><a href="{{route('diktors')}}">Дикторские голоса</a></li>
+                <li><a href="{{route('pogoda')}}">Прогноз погоды</a></li>
+                <li><a href="{{route('privet')}}">Голосовые приветствия</a></li>
+                <li><a href="{{route('efir')}}">Оформление эфира</a></li>
+                <li><a href="{{route('ozv_rolik')}}">Озвучка видео роликов</a></li>
             </ul>
 
             <div class="prices">

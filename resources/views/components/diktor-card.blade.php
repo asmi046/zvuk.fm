@@ -1,6 +1,11 @@
 <div class="dictor_card">
     <div class="photo">
-        <img src="{{$item->img}}" alt="Диктор {{$item->name}}">
+        @if (!empty($item->img))
+            <img src="{{$item->img}}" alt="Диктор {{$item->name}}">
+        @else
+            <img src="{{asset('img/no_photo.jpg')}}" alt="Диктор {{$item->name}}">
+        @endif
+
     </div>
     <div class="info">
         <div class="text">

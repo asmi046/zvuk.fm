@@ -32,6 +32,7 @@ Route::get('/policy', [EasyPageController::class, "policy"])->name('policy');
 
 Route::get('/audioroliki', [AudiofileController::class, "index"])->name('roliki');
 Route::get('/dictori', [DiktorController::class, "index"])->name('diktors');
+Route::get('/dictori/get', [DiktorController::class, "get_all"])->name('get_all_dictors');
 Route::get('/oplata', [EasyPageController::class, "pay"])->name('pay');
 
 Route::get('/oformlenie_efira', [EasyPageController::class, "efir"])->name('efir');

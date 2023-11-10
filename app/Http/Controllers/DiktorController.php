@@ -13,4 +13,10 @@ class DiktorController extends Controller
 
         return view('diktors', ['diktors' => $diktors]);
     }
+
+    public function get_all() {
+        $diktors = Diktor::all();
+
+        return $diktors;
+    }
 }

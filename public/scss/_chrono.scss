@@ -9,4 +9,33 @@
     textarea {
         width: 100%;
     }
+
+    h2,h3{
+        margin-top: 0;
+    }
+    .chrono_text {
+        border-radius: $brad10;
+        border:1px solid $msgray;
+        padding: 20px;
+        background-color: $mgray;
+
+        margin: 20px 0;
+    }
+
+    .dictors{
+        margin-top: 20px;
+    }
+}
+
+.zakaz_form{
+    display: flex;
+    flex-direction: column;
+
+    textarea{
+        margin-bottom: 20px;
+    }
+
+    .chrono_form__control_panel{
+        margin-top: 20px;
+    }
 }

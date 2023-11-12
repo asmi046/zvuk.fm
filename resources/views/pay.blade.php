@@ -12,5 +12,8 @@
     <x-breadcrumbs :title="$title"></x-breadcrumbs>
     <h1>{{$title}}</h1>
 
+    <h2>Спопобы оплаты</h2>
+    <img src="{{asset('img/pay2.png')}}" alt="Способы оплаты за изготовление рекламных роликов">
+    {!! $options['prices_text'] !!}
 @endsection
 

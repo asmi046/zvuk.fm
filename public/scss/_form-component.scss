@@ -15,9 +15,31 @@ form {
     }
 
     textarea,
+    select,
     input {
         border: 1px solid $msgray;
         padding: 10px 15px;
         border-radius: $brad10;
+        background-color: white;
+    }
+
+    .quill_wrapper {
+        height: 200px;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        display: inline-block;
+
+        .ql-container{
+            height: calc(100% - 42px);
+        }
+    }
+
+    label{
+        display: inline-block;
+        margin: 10px 0 5px 0;
+        color: $msgray;
+        font-size: 14px;
     }
 }
+
+

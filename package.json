@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^4.4.0",
+        "@vueup/vue-quill": "^1.2.0",
         "jquery": "^3.7.1",
         "v-slim-mask": "^1.0.24",
         "vue": "^3.3.7",

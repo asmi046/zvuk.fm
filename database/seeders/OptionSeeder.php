@@ -95,6 +95,14 @@ class OptionSeeder extends Seeder
                     "value" => file_get_contents(public_path('test//efir.html')),
                 ],
 
+                [
+                    "name" => "prices_text",
+                    "type" => "rich",
+                    "page" => "Оплата",
+                    'title' => 'Текст со страницы Оплата',
+                    "value" => file_get_contents(public_path('test//prices.html')),
+                ],
+
             ]);
     }
 }

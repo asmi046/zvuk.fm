@@ -30,6 +30,7 @@ Route::get('/golosovie_privetstviya', [EasyPageController::class, "privet"])->na
 Route::get('/policy', [EasyPageController::class, "policy"])->name('policy');
 
 
+
 Route::get('/audioroliki', [AudiofileController::class, "index"])->name('roliki');
 Route::get('/dictori', [DiktorController::class, "index"])->name('diktors');
 Route::get('/dictori/get', [DiktorController::class, "get_all"])->name('get_all_dictors');

@@ -36,6 +36,10 @@ class EasyPageController extends Controller
         return view('privet');
     }
 
+    public function online_zakaz() {
+        return view('online-zakaz');
+    }
+
 
 
     public function efir() {

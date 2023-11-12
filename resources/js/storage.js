@@ -22,7 +22,6 @@ export const store = new createStore({
         getDictors(context, value) {
                 axios.get('/dictori/get')
                 .then((response) => {
-                    console.log(response)
                     context.commit('setDictors', response.data)
                 })
                 .catch(error => console.log(error));

@@ -20,4 +20,17 @@
             background-color: $mdarcred;
         }
     }
+
+
+}
+
+@media screen and (max-width:768px){
+
+    .text_styles {
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+
 }

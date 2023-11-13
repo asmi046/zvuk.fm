@@ -13,7 +13,10 @@
     <h1>{{$title}}</h1>
 
     <h2>Спопобы оплаты</h2>
-    <img src="{{asset('img/pay2.png')}}" alt="Способы оплаты за изготовление рекламных роликов">
-    {!! $options['prices_text'] !!}
+    <div class="text_styles">
+        <img src="{{asset('img/pay2.png')}}" alt="Способы оплаты за изготовление рекламных роликов">
+        {!! $options['prices_text'] !!}
+    </div>
+
 @endsection
 

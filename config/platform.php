@@ -159,8 +159,8 @@ return [
      |
      */
 
-    'template' => [
-        'header' => '',
+     'template'      => [
+        'header' => 'brand.header',
         'footer' => '',
     ],
 

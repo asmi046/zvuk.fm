@@ -65,7 +65,7 @@ class MainPageSeeder extends Seeder
                 [
                     "name" => "work_time",
                     "type" => "rich",
-                    "page" => "",
+                    "page" => "Главная",
                     'title' => 'Политика конфиденциальности',
                     "value" => file_get_contents(public_path('test//work_time.html')),
                 ],
@@ -73,7 +73,7 @@ class MainPageSeeder extends Seeder
                 [
                     "name" => "main_text",
                     "type" => "rich",
-                    "page" => "",
+                    "page" => "Главная",
                     'title' => 'Политика конфиденциальности',
                     "value" => file_get_contents(public_path('test//main_text.html')),
                 ],

@@ -20,6 +20,13 @@ use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
+use App\Orchid\Screens\FileUsers\FileUsersCreateScreen;
+use App\Orchid\Screens\FileUsers\FileUsersEditScreen;
+use App\Orchid\Screens\FileUsers\FileUsersListScreen;
+
+use App\Orchid\Screens\Options\OptionsList;
+use App\Orchid\Screens\Options\EditOptions;
+
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -30,6 +37,37 @@ use Tabuna\Breadcrumbs\Trail;
 | contains the need "dashboard" middleware group. Now create something great!
 |
 */
+
+// Опции
+Route::screen('/options', OptionsList::class)
+    ->name('platform.options')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Опции'), route("platform.options")));
+
+Route::screen('/options/{id}/edit', EditOptions::class)
+    ->name('platform.options_edit')->breadcrumbs(fn (Trail $trail, $id) => $trail
+    ->parent('platform.options')
+    ->push(__('Редактирование опции'), route('platform.options_edit', $id)));
+
+
+
+// Пользователи скачивающие файлы
+Route::screen('/fileusers', FileUsersListScreen::class)
+    ->name('platform.fileusers')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.index')
+    ->push(__('Пользователи скачивающие файлы'), route('platform.fileusers')));
+
+Route::screen('/fileusers/{id}/edit', FileUsersEditScreen::class)
+    ->name('platform.fileusers_edit')->breadcrumbs(fn (Trail $trail, $id) => $trail
+    ->parent('platform.fileusers')
+    ->push(__('Редактирование пользователя файлов'), route('platform.fileusers_edit', $id)));
+
+Route::screen('/fileusers/create', FileUsersCreateScreen::class)
+    ->name('platform.fileusers_create')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.fileusers')
+    ->push(__('Добавление пользователя файлов'), route('platform.fileusers_create')));
+
 
 // Main
 Route::screen('/main', PlatformScreen::class)

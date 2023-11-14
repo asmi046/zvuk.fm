@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-// use Orchid\Screen\AsSource;
-// use Orchid\Filters\Filterable;
-// use Orchid\Filters\Types\Like;
+use Orchid\Screen\AsSource;
+use Orchid\Filters\Filterable;
+use Orchid\Filters\Types\Like;
 
 class Option extends Model
 {
     use HasFactory;
-    // use AsSource;
-    // use Filterable;
+    use AsSource;
+    use Filterable;
 
     protected $fillable = [
         'name',
@@ -29,6 +29,8 @@ class Option extends Model
     ];
 
     protected $allowedFilters = [
-        'name' => Like::class,
+        'title' => Like::class,
+        'page' => Like::class,
+        'value' => Like::class,
     ];
 }

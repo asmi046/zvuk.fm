@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens;
 
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
+
+use App\Models\Audiofile;
+use App\Models\Diktor;
+use App\Models\FileUser;
 
 class PlatformScreen extends Screen
 {
@@ -16,23 +21,34 @@ class PlatformScreen extends Screen
      */
     public function query(): iterable
     {
-        return [];
+        return [
+            'metrics' => [
+                'roliki' => ['value' => Audiofile::all()->count()],
+                'diktors'   => ['value' => Diktor::all()->count()],
+                'file_user'   => ['value' => FileUser::all()->count()],
+            ],
+
+        ];
     }
 
     /**
      * The name of the screen displayed in the header.
+     *
+     * @return string|null
      */
     public function name(): ?string
     {
-        return 'Get Started';
+        return 'zvuk.fm';
     }
 
     /**
      * Display header description.
+     *
+     * @return string|null
      */
     public function description(): ?string
     {
-        return 'Welcome to your Orchid application.';
+        return 'Производство аудио рекламы, профессиональные дикторские голоса';
     }
 
     /**
@@ -42,7 +58,11 @@ class PlatformScreen extends Screen
      */
     public function commandBar(): iterable
     {
-        return [];
+        return [
+            Link::make('Перейти на сайт')
+                ->href(route("home"))
+                ->icon('globe-alt'),
+        ];
     }
 
     /**
@@ -53,8 +73,11 @@ class PlatformScreen extends Screen
     public function layout(): iterable
     {
         return [
-            Layout::view('platform::partials.update-assets'),
-            Layout::view('platform::partials.welcome'),
+            Layout::metrics([
+                'Аудиороликов' => 'metrics.roliki',
+                'Дикторов' => 'metrics.diktors',
+                'Пользователей которые могут скачивать файлы' => 'metrics.file_user',
+            ]),
         ];
     }
 }

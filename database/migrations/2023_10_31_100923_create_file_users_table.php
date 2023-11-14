@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('file_users', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('uid')->comment("UID для отбора файлов");
+            $table->integer('uid')->unique()->comment("UID для отбора файлов");
             $table->string('name', 150)->comment("Имя пользователя");
-            $table->string('comment', 550)->comment("Комментарий");
+            $table->string('comment', 550)->nullable()->comment("Комментарий");
         });
     }
 

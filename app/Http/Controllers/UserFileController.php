@@ -15,18 +15,23 @@ class UserFileController extends Controller
         $login = $request->input('login');
         $user = FileUser::where('name', $login)->first();
 
+
+
         $file_list = [];
 
         if ($user) {
             $uid = $user->uid;
             $file_list = $user_files->handle($uid);
-
         }
+
+        // dd($file_list);
 
         return view('user-file', [
             'search_do' => !empty($login),
             'user_accept' => !empty($user),
-            'file_list' => $file_list
+            'file_list' => $file_list,
+            'uid'=>$uid,
+            'user'=>$user,
         ]);
     }
 

@@ -25,7 +25,7 @@
                 @foreach ($file_list as $key => $items)
                     <h3>{{$key}}</h3>
                     @foreach ($items as $item)
-                        <x-file-line :item="$item"></x-file-line>
+                        <x-file-line :user="$user" :item="$item"></x-file-line>
                     @endforeach
                 @endforeach
             @endif

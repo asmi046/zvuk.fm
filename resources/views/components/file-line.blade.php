@@ -2,6 +2,9 @@
     <div class="col">
         <span>Файл</span>
         <a href="{{$item["href"]}}">{{$item["clear_name"]}}</a>
+        @if ($user->uid == 1)
+            <p class="comment">{{$item['comment']}}</p>
+        @endif
     </div>
 
     <div class="col">

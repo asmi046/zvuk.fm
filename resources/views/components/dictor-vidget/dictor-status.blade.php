@@ -1,5 +1,5 @@
 <div class="row">
-    <span>{{$item->actor->name}}</span>
+    <span><a target="_blank" href="{{$item->actor->audio}}">{{$item->actor->name}}</a></span>
     <span
     @class(["status",
         "active" => ($item->status === "в студии до")||($item->status === "ожидается к"),

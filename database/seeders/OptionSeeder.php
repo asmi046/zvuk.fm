@@ -103,6 +103,15 @@ class OptionSeeder extends Seeder
                     "value" => file_get_contents(public_path('test//prices.html')),
                 ],
 
+
+                [
+                    "name" => "annonce_text",
+                    "type" => "rich",
+                    "page" => "Главная",
+                    'title' => 'Обявление',
+                    "value" => file_get_contents(public_path('test//annonce.html')),
+                ]
+
             ]);
     }
 }

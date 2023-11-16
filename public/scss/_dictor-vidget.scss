@@ -31,6 +31,10 @@
             flex-wrap: wrap;
             border-bottom: 1px solid $msgray;
 
+            a:hover{
+                text-decoration: underline;
+            }
+
             span {
                 margin: 5px 0;
             }

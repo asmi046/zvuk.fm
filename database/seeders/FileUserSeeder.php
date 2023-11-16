@@ -17,6 +17,12 @@ class FileUserSeeder extends Seeder
         DB::table("file_users")->insert(
             [
                 [
+                    "uid" => 1,
+                    "name" => "adm_1_s",
+                    'comment' => 'Главный администратор',
+                ],
+
+                [
                     "uid" => 549,
                     "name" => "rp4PEERE",
                     'comment' => 'Суперадмин',
@@ -55,7 +61,7 @@ class FileUserSeeder extends Seeder
                 [
                     "uid" => 77,
                     "name" => "zvuktest77",
-                    'comment' => 'Админ для просмотра всех файлов',
+                    'comment' => 'Не постоянный клиент',
                 ],
             ]
         );

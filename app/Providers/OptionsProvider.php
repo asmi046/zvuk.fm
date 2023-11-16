@@ -46,6 +46,7 @@ class OptionsProvider extends ServiceProvider
                 $today = $studio->get_schedule();
                 $tomorrow = $studio->get_schedule("tomorrow");
 
+                // dd($today, $tomorrow);
                 if (empty($today) || empty($tomorrow)) {
                     $studio = new StudioSystemSevice();
 

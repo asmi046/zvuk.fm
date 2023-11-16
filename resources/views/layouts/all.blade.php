@@ -47,6 +47,9 @@
                 <div class="sidebar_section__sidebar">
 
                     <x-sidebar-btn></x-sidebar-btn>
+                    <x-annonce></x-annonce>
+
+
 
                     <x-dictor-vidget.main name="Актеры на сегодня" :data="$schedule_today"></x-dictor-vidget.main>
                     <x-dictor-vidget.main name="Актеры на завтра" :data="$schedule_tomorrow"></x-dictor-vidget.main>

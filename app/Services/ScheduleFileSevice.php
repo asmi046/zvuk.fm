@@ -34,7 +34,7 @@ class ScheduleFileSevice {
             $tmp = [];
             $tmp1 = [];
             $tmp1["name"] =  $node->getElementsByTagName('a')[0]->textContent;
-            $tmp1["audio"] =  $node->getElementsByTagName('a')[0]->getAttribute('href');
+            $tmp1["audio"] =  str_replace("/player","/demo",$node->getElementsByTagName('a')[0]->getAttribute('href'));
             $tmp["actor"] = (object)$tmp1;
             $tmp["status"] =  $node->getElementsByTagName('img')[0]->getAttribute('alt');
 

@@ -24,7 +24,9 @@ class DiktorSeeder extends Seeder
                     "system_cost" => $item['system_cost'],
                     "sample_cost" => $item['sample_cost'],
                     "ivr_cost" => $item['ivr_cost'],
-                    "dop_cost" => $item['dop_cost']
+                    "dop_cost" => $item['dop_cost'],
+                    "obr_standatr" => 351,
+                    "obr_one" => 551
                 ]);
             }
         }

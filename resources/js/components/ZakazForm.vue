@@ -1,9 +1,18 @@
 <template>
     <form class="zakaz_form" action="">
-        <textarea cols="30" rows="10" placeholder="Введите текст ДЛЯ ДИКТОРА. Важно! Текст заказа должен быть введён именно в это поле, а не в прикреплённом к письму текстовом файле"></textarea>
+        <div class="quill_wrapper">
+            <label for="">Введите текст для диктора</label>
+            <quill-editor
+                theme="snow"
+                contentType="html"
+                :toolbar="['bold', 'italic', 'underline']"
+                v-model:content="content"
+                placeholder="Введите текст ДЛЯ ДИКТОРА. Важно! Текст заказа должен быть введён именно в это поле, а не в прикреплённом к письму текстовом файле"
+                ></quill-editor>
+        </div>
         <div class="quill_wrapper">
             <label for="">Введите комментарий к заказу</label>
-            <quill-editor theme="snow" contentType="html" v-model:content="content"></quill-editor>
+            <quill-editor theme="snow" contentType="html" :toolbar="['bold', 'italic', 'underline']"  v-model:content="content"></quill-editor>
         </div>
 
         <label for="file">Прикрепите файл:</label>
@@ -48,7 +57,7 @@ export default {
 
     setup() {
 
-        let content = ref("d1fsdfsdf");
+        let content = ref("");
 
         return {
             content

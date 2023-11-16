@@ -7,7 +7,7 @@
         </div>
 
         <label for="file">Прикрепите файл:</label>
-        <input type="file" id="file">
+        <input type="file" accept="audio/*" id="file">
 
         <label for="type_calc">Выберите тип:</label>
         <select name="type_calc" id="type_calc">

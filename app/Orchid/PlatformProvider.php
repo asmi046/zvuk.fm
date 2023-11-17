@@ -38,6 +38,9 @@ class PlatformProvider extends OrchidServiceProvider
             ->title('Управление обьектами')
             ->route('platform.fileusers'),
 
+            Menu::make('Дикторы')
+            ->route('platform.diktors'),
+
             Menu::make('Опции сайта')
             ->route('platform.options')
             ->title('Настройки сайта'),

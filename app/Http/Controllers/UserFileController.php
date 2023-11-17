@@ -19,6 +19,7 @@ class UserFileController extends Controller
 
         $file_list = [];
 
+        $uid = 0;
         if ($user) {
             $uid = $user->uid;
             $file_list = $user_files->handle($uid);

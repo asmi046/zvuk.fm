@@ -24,6 +24,10 @@ use App\Orchid\Screens\FileUsers\FileUsersCreateScreen;
 use App\Orchid\Screens\FileUsers\FileUsersEditScreen;
 use App\Orchid\Screens\FileUsers\FileUsersListScreen;
 
+use App\Orchid\Screens\Diktors\DiktorsCreateScreen;
+use App\Orchid\Screens\Diktors\DiktorsEditScreen;
+use App\Orchid\Screens\Diktors\DiktorsListScreen;
+
 use App\Orchid\Screens\Options\OptionsList;
 use App\Orchid\Screens\Options\EditOptions;
 
@@ -67,6 +71,23 @@ Route::screen('/fileusers/create', FileUsersCreateScreen::class)
     ->name('platform.fileusers_create')->breadcrumbs(fn (Trail $trail) => $trail
     ->parent('platform.fileusers')
     ->push(__('Добавление пользователя файлов'), route('platform.fileusers_create')));
+
+
+// Дикторы
+Route::screen('/diktors', DiktorsListScreen::class)
+    ->name('platform.diktors')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.index')
+    ->push(__('Дикторы'), route('platform.diktors')));
+
+Route::screen('/diktors/{id}/edit', DiktorsEditScreen::class)
+    ->name('platform.diktors_edit')->breadcrumbs(fn (Trail $trail, $id) => $trail
+    ->parent('platform.diktors')
+    ->push(__('Редактирование диктора'), route('platform.diktors_edit', $id)));
+
+Route::screen('/diktors/create', DiktorsCreateScreen::class)
+    ->name('platform.diktors_create')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.diktors')
+    ->push(__('Добавление диктора'), route('platform.diktors_create')));
 
 
 // Main

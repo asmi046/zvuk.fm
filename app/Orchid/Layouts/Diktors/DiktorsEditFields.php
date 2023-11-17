@@ -83,6 +83,7 @@ class DiktorsEditFields extends Rows
 
             Input::make('load.file')
                 ->type('file')
+                ->accept("audio/*")
                 ->title('Загрузить пример голоса')
                 ->help('Загрузить пример голоса диктора')
                 ->horizontal(),
@@ -94,6 +95,7 @@ class DiktorsEditFields extends Rows
 
             Input::make('load.file_irv')
                 ->type('file')
+                ->accept("audio/*")
                 ->title('Загрузить пример голоса IVR')
                 ->help('Загрузить голоса диктора IVR')
                 ->horizontal(),

@@ -21,5 +21,11 @@ class Price extends Model
         'sample_cost',
         'ivr_cost',
         'dop_cost',
+        'obr_standatr',
+        'obr_one',
     ];
+
+    public function dictor_info() {
+        return $this->hasOne(Diktor::class, 'id', 'diktor_id');
+    }
 }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("description", 550)->comment("Описание");
             $table->boolean("irv", 550)->default(1)->comment("может IRV");
             $table->string("img", 550)->nullable()->comment("фото");
-            $table->string("file", 550)->comment("Пример");
+            $table->string("file", 550)->nullable()->comment("Пример");
             $table->string("file_irv", 550)->nullable()->comment("Пример IRV");
             $table->string("gender", 20)->comment("Пол");
 

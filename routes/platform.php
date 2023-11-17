@@ -28,6 +28,9 @@ use App\Orchid\Screens\Diktors\DiktorsCreateScreen;
 use App\Orchid\Screens\Diktors\DiktorsEditScreen;
 use App\Orchid\Screens\Diktors\DiktorsListScreen;
 
+use App\Orchid\Screens\Diktors\DiktorIntervalCreateScreen;
+use App\Orchid\Screens\Diktors\DiktorIntervalEditScreen;
+
 use App\Orchid\Screens\Options\OptionsList;
 use App\Orchid\Screens\Options\EditOptions;
 
@@ -88,6 +91,16 @@ Route::screen('/diktors/create', DiktorsCreateScreen::class)
     ->name('platform.diktors_create')->breadcrumbs(fn (Trail $trail) => $trail
     ->parent('platform.diktors')
     ->push(__('Добавление диктора'), route('platform.diktors_create')));
+
+Route::screen('/diktors/price/{id}/edit', DiktorIntervalEditScreen::class)
+    ->name('platform.diktors_price_edit')->breadcrumbs(fn (Trail $trail, $id) => $trail
+    ->parent('platform.diktors')
+    ->push(__('Редактирование интервала и цен'), route('platform.diktors_price_edit', $id)));
+
+Route::screen('/diktors/{id}/price/create', DiktorIntervalCreateScreen::class)
+    ->name('platform.diktors_price_create')->breadcrumbs(fn (Trail $trail, $id) => $trail
+    ->parent('platform.diktors')
+    ->push(__('Создание интервала и цен'), route('platform.diktors_price_create', $id)));
 
 
 // Main

@@ -53,9 +53,9 @@ class DiktorPricesListTable extends Table
                 ->icon('chat-right-dots')
                 ->list([
 
-                    // Link::make('Редактировать')
-                    //     ->route('platform.diktors_edit',$element->id)
-                    //     ->icon('pencil'),
+                    Link::make('Редактировать')
+                        ->route('platform.diktors_price_edit',$element->id)
+                        ->icon('pencil'),
 
                     Button::make('Удалить')
                         ->icon('trash')

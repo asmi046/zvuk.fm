@@ -11,6 +11,7 @@ use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Support\Facades\Toast;
 use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Actions\Link;
 
 use Orchid\Support\Color;
 
@@ -22,6 +23,8 @@ use Illuminate\Http\Request;
 use Orchid\Screen\Fields\TextArea;
 
 use Illuminate\Validation\Rule;
+
+use Illuminate\Support\Facades\Storage;
 
 class DiktorsEditScreen extends Screen
 {
@@ -60,7 +63,11 @@ class DiktorsEditScreen extends Screen
      */
     public function commandBar(): iterable
     {
-        return [];
+        return [
+            Link::make('Добавить интервал')
+            ->href(route("platform.diktors_price_create", $this->diktor->id))
+            ->icon('hourglass-split'),
+        ];
     }
 
     /**
@@ -90,13 +97,27 @@ class DiktorsEditScreen extends Screen
     public function save_info(Request $request) {
 
         $request->validate([
-            'diktor.uid' => ['required', 'integer',  Rule::unique('file_users', 'uid')->ignore($this->diktor->id)],
-            'diktor.name' => ['required', 'string']
+            'diktor.name' => ['required', 'string'],
+            'diktor.description' => ['required', 'string'],
+            'diktor.gender' => ['required', 'string'],
         ]);
 
+        $data = $request->get('diktor');
+        if ($request->file('load.file')) {
+            $file = $request->file('load.file');
+            $file_name = $file->getClientOriginalName();
+            Storage::disk('public')->put(basename($file_name), file_get_contents($file), 'public');
+            $data['file'] =Storage::url(basename($file_name));
+        }
 
+        if ($request->file('load.file_irv')) {
+            $file = $request->file('load.file_irv');
+            $file_name = $file->getClientOriginalName();
+            Storage::disk('public')->put(basename($file_name), file_get_contents($file), 'public');
+            $data['file_irv'] =Storage::url(basename($file_name));
+        }
 
-        $this->diktor->fill($request->get('diktor'))->save();
+        $this->diktor->fill($data)->save();
 
         Toast::info("Запись сохранена");
 

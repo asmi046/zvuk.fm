@@ -40,6 +40,19 @@ form {
         color: $msgray;
         font-size: 14px;
     }
+    .elem_wripper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .coll2 {
+        display: flex;
+        justify-content: space-between;
+        gap: 3rem;
+        .col {
+            flex: 1;
+        }
+    }
 }
 
 

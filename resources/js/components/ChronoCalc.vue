@@ -17,7 +17,13 @@
         <select v-model="type" name="type_calc" id="type_calc">
             <option value="Голос">Голос</option>
             <option value="Ролик">Ролик</option>
-            <option value="IRV">IRV</option>
+            <option value="IVR">IVR</option>
+        </select>
+        <br>
+        <select v-show="type == 'Голос'" v-model="type_obr" name="type_obr" id="type_obr">
+            <option value="Без обработки">Без обработки</option>
+            <option value="Базовые обработки">Базовые обработки</option>
+            <option value="Почистить в один дубль">Почистить в один дубль</option>
         </select>
 
         <div class="dictors">
@@ -43,18 +49,15 @@ export default {
         let calc_text = ref('')
         let result_text = ref('Стандартный:<br/>Игровой:<br/>Медленный: <br/> Страниц текста всего:')
         let type = ref('Голос')
-
+        let type_obr = ref('Без обработки')
         let standart_chrono = ref(0)
 
         const store = useStore()
 
-        // let dictors_src = computed(() => store.getters.dictors);
-
-        // let dictors_src = {}
 
         let dictors = ref([]);
 
-        watch(() => [store.getters.dictors, standart_chrono.value, type.value], function() {
+        watch(() => [store.getters.dictors, standart_chrono.value, type.value, type_obr.value,], function() {
             console.log("---->")
             getDictorsList()
         });
@@ -74,7 +77,7 @@ export default {
             for (let diktor_index in store.getters.dictors) {
                 let diktor = store.getters.dictors[diktor_index]
 
-                if ((type.value == "IRV") && (diktor.irv != 1)) continue;
+                if ((type.value == "IVR") && (diktor.irv != 1)) continue;
 
 
                 let dictor_name = ""
@@ -89,9 +92,14 @@ export default {
                         dictor_name = diktor.name
                         dictor_smple = diktor.file
 
-                        if (type.value == "Голос") dictor_price = price_interval.system_cost
+                        if (type.value == "Голос") {
+                            if (type_obr.value == "Без обработки") dictor_price = price_interval.system_cost
+                            if (type_obr.value == "Базовые обработки") dictor_price = price_interval.obr_standatr
+                            if (type_obr.value == "Почистить в один дубль") dictor_price = price_interval.obr_one
+                        }
+
                         if (type.value == "Ролик") dictor_price = price_interval.sample_cost
-                        if (type.value == "IRV") dictor_price = price_interval.irv_cost
+                        if (type.value == "IVR") dictor_price = price_interval.ivr_cost
 
                     }
 
@@ -113,7 +121,8 @@ export default {
             calc_chrono,
             result_text,
             dictors,
-            type
+            type,
+            type_obr
         }
     }
 }

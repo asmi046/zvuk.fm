@@ -13,18 +13,27 @@
     h2,h3{
         margin-top: 0;
     }
-    .chrono_text {
-        border-radius: $brad10;
-        border:1px solid $msgray;
-        padding: 20px;
-        background-color: $mgray;
 
-        margin: 20px 0;
-    }
 
     .dictors{
         margin-top: 20px;
     }
+}
+
+.chrono_text {
+    border-radius: $brad10;
+    border:1px solid $msgray;
+    padding: 20px;
+    background-color: $mgray;
+    margin: 20px 0;
+
+    h2,h3{
+        margin-top: 0;
+    }
+    p{
+        margin-bottom: 0;
+    }
+
 }
 
 .zakaz_form{

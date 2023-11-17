@@ -50,3 +50,22 @@
         }
     }
 }
+
+.dictors_list_mini {
+    display: flex;
+    flex-wrap: wrap;
+
+    .dictor {
+        background-color: $mgray;
+        margin: 0 10px 10px 0;
+        border-radius: $brad20;
+        padding: 5px 20px;
+        cursor: pointer;
+    }
+
+    .dictor.active,
+    .dictor:hover {
+        background-color: $mred;
+        color:  white;
+    }
+}

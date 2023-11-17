@@ -61,11 +61,14 @@
         border-radius: $brad20;
         padding: 5px 20px;
         cursor: pointer;
+        border: 1px solid $mgray;
     }
 
-    .dictor.active,
-    .dictor:hover {
+    .dictor.active{
         background-color: $mred;
         color:  white;
+    }
+    .dictor:hover {
+        border: 1px solid $mred;
     }
 }

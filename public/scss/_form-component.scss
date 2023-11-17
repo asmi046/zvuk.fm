@@ -53,6 +53,16 @@ form {
             flex: 1;
         }
     }
+
+    .information {
+        margin: 5px 0 0 0;
+        font-size: 12px;
+        display: block;
+        padding: 3px 20px;
+        background-color: $mgray;
+        border: 1px solid $mcomponentgray;
+        border-radius: 10px;
+    }
 }
 
 

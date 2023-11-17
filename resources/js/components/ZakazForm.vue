@@ -1,6 +1,6 @@
 <template>
     <form class="zakaz_form" action="">
-        <zakaz-dictors></zakaz-dictors>
+        <zakaz-dictors v-model="select_diktors" :multi="false"></zakaz-dictors>
         <div class="quill_wrapper">
             <label for="">Введите текст для диктора</label>
             <quill-editor
@@ -23,6 +23,10 @@
                 <div class="elem_wripper" v-show="zak_type == 'Голос'">
                     <zakaz-select  label="Обработка:" :list="zak_obr_type_list" v-model="zak_obr_type" ></zakaz-select>
                 </div>
+                <p class="information" v-show="zak_type == 'IVR'">Расчет ведется за каждый элемент IVR а не по общему хронометражу</p>
+                <div class="elem_wripper" v-show="zak_type == 'IVR'">
+                    <zakaz-select  label="Дополнительно:" :list="zak_irv_type_list" v-model="zak_irv_type" ></zakaz-select>
+                </div>
             </div>
 
             <div class="col">
@@ -33,6 +37,10 @@
             </div>
         </div>
 
+        <div class="chrono_text chrono_text_price">
+            <h3>Цена:</h3>
+            <p>0  ₽</p>
+        </div>
 
         <div class="quill_wrapper">
             <label for="">Введите комментарий к заказу</label>
@@ -57,7 +65,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import {  watch, ref } from 'vue';
 
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
@@ -78,12 +86,26 @@ export default {
 
         let content = ref("");
         let zak_type = ref("Голос")
-        let zak_type_list = ["Голос", "Ролик", "IRV"]
+        let zak_type_list = ["Голос", "Ролик", "IVR"]
+
         let zak_obr_type = ref("Без обработки")
         let zak_obr_type_list = ["Без обработки", "Базовая обработка", "Почистить в один дубль"]
+
+        let zak_irv_type = ref("Без музыки")
+        let zak_irv_type_list = ["Без музыки", "С музыкой"]
+
+        let select_diktors = ref(["Аврора", "Максим"])
+
         let result_text = ref('Стандартный:<br/>Игровой:<br/>Медленный: <br/> Страниц текста всего:')
 
         let standart_chrono = ref(0)
+
+        watch(() => zak_type.value, function() {
+            console.log("22")
+
+            select_diktors.value = []
+            console.log(select_diktors.value)
+        });
 
         const diktorTextChenge = () => {
             let clear_text = diktor_text_editor.value.getText().trim()
@@ -101,7 +123,12 @@ export default {
             zak_obr_type,
             result_text,
             zak_obr_type_list,
+
+            zak_irv_type,
+            zak_irv_type_list,
+
             diktor_text_editor,
+            select_diktors,
             diktorTextChenge
         }
     }

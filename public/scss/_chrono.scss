@@ -36,6 +36,18 @@
 
 }
 
+.chrono_text_price {
+    display: flex;
+    justify-content: space-between;
+
+    h2,h3{
+        margin: auto auto auto 0;
+    }
+    p{
+        margin: auto 0 auto auto;
+    }
+}
+
 .zakaz_form{
     display: flex;
     flex-direction: column;

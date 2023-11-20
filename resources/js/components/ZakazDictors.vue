@@ -1,6 +1,6 @@
 <template>
     <div class="dictors_list_mini">
-        <div @click.prevent="selectDictor(item.name)" :class="{active:selected_dictors.includes(item.name)}" class="dictor" v-for="item in store.getters.dictors" :key="item.id">
+        <div @click.prevent="selectDictor(item.name)" :class="{active:props.modelValue.includes(item.name)}" class="dictor" v-for="item in store.getters.dictors" :key="item.id">
             <div class="name">{{ item.name }}</div>
             <!-- <audio controls :src="item.file"></audio> -->
         </div>
@@ -20,29 +20,31 @@
     const store = useStore()
     const emit = defineEmits(['update:modelValue'])
 
-    let selected_dictors = props.modelValue?ref(props.modelValue):ref([])
 
-    watch(() => props.modelValue.value, function(nv, old) {
-        // console.log('33')
-        // console.log(props.modelValue)
-        // console.log(nv)
-        // console.log(old)
-        selected_dictors = props.modelValue?props.modelValue:[]
-    });
+    // watch(() => [props.modelValue.value], function(nv, old) {
+    //     console.log('33')
+    //     console.log(props.modelValue.value)
+    //     console.log(nv.value)
+    //     console.log(old.value)
+    //     selected_dictors.value = nv
+    // });
 
     function selectDictor(item) {
+
         if (props.multi)
         {
-            if(selected_dictors.value.includes(item))
-                selected_dictors.value.splice(selected_dictors.value.indexOf(item),1)
+            console.log(props.modelValue)
+            if(props.modelValue.includes(item))
+                props.modelValue.value.splice(props.modelValue.value.indexOf(item),1)
             else
-                selected_dictors.value.push(item)
+                props.modelValue.value.push(item)
         } else {
-            selected_dictors.value = [item]
+            props.modelValue.value = [item]
+            console.log(props.modelValue.value)
         }
 
 
-        updateValue(selected_dictors)
+        updateValue(props.modelValue.value)
     }
 
     function updateValue(value) {

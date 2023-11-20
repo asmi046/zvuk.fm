@@ -1,6 +1,6 @@
 <template>
     <form class="zakaz_form" action="">
-        <zakaz-dictors v-model="select_diktors" :multi="false"></zakaz-dictors>
+        <zakaz-dictors v-model="select_diktors" :multi="multiselect"></zakaz-dictors>
         <div class="quill_wrapper">
             <label for="">Введите текст для диктора</label>
             <quill-editor
@@ -79,7 +79,8 @@ import { calcHronoTime } from '../HronoDopCalc.js'
 export default {
     components:{
     QuillEditor,
-    ZakazSelect,ZakazDictors
+    ZakazSelect,
+    ZakazDictors
 },
 
     setup() {
@@ -99,11 +100,11 @@ export default {
         let result_text = ref('Стандартный:<br/>Игровой:<br/>Медленный: <br/> Страниц текста всего:')
 
         let standart_chrono = ref(0)
+        let multiselect = ref(true);
 
         watch(() => zak_type.value, function() {
-            console.log("22")
-
             select_diktors.value = []
+            multiselect.value = zak_type.value !== "IVR"
             console.log(select_diktors.value)
         });
 
@@ -126,6 +127,8 @@ export default {
 
             zak_irv_type,
             zak_irv_type_list,
+
+            multiselect,
 
             diktor_text_editor,
             select_diktors,

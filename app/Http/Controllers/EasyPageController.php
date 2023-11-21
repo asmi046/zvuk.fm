@@ -12,6 +12,10 @@ class EasyPageController extends Controller
         return view('policy');
     }
 
+    public function thencs() {
+        return view('thencs');
+    }
+
     public function cantacts() {
         return view('contacts');
     }

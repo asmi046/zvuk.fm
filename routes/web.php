@@ -6,6 +6,7 @@ use App\Http\Controllers\EasyPageController;
 use App\Http\Controllers\UserFileController;
 use App\Http\Controllers\AudiofileController;
 use App\Http\Controllers\DiktorController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,11 @@ Route::get('/preimushestva', [EasyPageController::class, "advantages"])->name('a
 Route::get('/prognoz-pogodi', [EasyPageController::class, "pogoda"])->name('pogoda');
 Route::get('/golosovie_privetstviya', [EasyPageController::class, "privet"])->name('privet');
 Route::get('/policy', [EasyPageController::class, "policy"])->name('policy');
+
+
+
+Route::post('/create_order', [OrderController::class, "create_order"])->name('create_order');
+Route::get('/thencs', [EasyPageController::class, "thencs"])->name('thencs');
 
 
 

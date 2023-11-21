@@ -53,13 +53,13 @@
 
 
         <label for="type_calc">Введите ваш email:</label>
-        <input type="text" id="email">
+        <input v-model="email" type="text" id="email">
 
         <label for="type_calc">Введите ваш телефон:</label>
-        <input type="text" id="phone">
+        <input v-model="phone" type="text" id="phone">
 
         <div class="chrono_form__control_panel">
-            <button>Отправить</button>
+            <button @click.prevent="sendOrder">Отправить</button>
         </div>
     </form>
 </template>
@@ -85,6 +85,9 @@ export default {
 },
 
     setup() {
+
+        let email = ref("");
+        let phone = ref("");
 
         let content = ref("");
         let zak_type = ref("Голос")
@@ -274,6 +277,23 @@ export default {
         const diktor_text_editor = ref(null)
 
         const sendOrder = () => {
+            axios.post("/create_order", {
+                _token: document.querySelector('meta[name="_token"]').content,
+                order: {
+                    'content':content.value,
+                    'zak_type':zak_type.value,
+                    'obrabotka':zak_obr_type.value,
+                    'irv_muz':zak_irv_type.value,
+                    'price':zak_price.value,
+                    "email":email.value,
+                    "phone":phone.value,
+                    'standart_chrono':standart_chrono.value,
+                }
+            })
+            .then((response) => {
+                console.log(response)
+            })
+            .catch( error => console.log(error));
 
         }
 
@@ -293,7 +313,10 @@ export default {
             diktor_text_editor,
             select_diktors,
             zak_price,
-            diktorTextChenge
+            email,
+            phone,
+            diktorTextChenge,
+            sendOrder
         }
     }
 }

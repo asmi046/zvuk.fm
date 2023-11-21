@@ -24,7 +24,7 @@ class DiktorSeeder extends Seeder
                     "system_cost" => $item['system_cost'],
                     "sample_cost" => $item['sample_cost'],
                     "ivr_cost" => $item['ivr_cost'],
-                    "ivr_music_cost" => floatval($item['ivr_music_cost'])+3,
+                    "ivr_music_cost" => floatval($item['ivr_cost'])+3,
                     "dop_cost" => $item['dop_cost'],
                     "obr_standatr" => floatval($item['system_cost'])+1,
                     "obr_one" => floatval($item['system_cost'])+2

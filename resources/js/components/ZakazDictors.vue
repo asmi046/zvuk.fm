@@ -1,6 +1,11 @@
 <template>
     <div class="dictors_list_mini">
-        <div @click.prevent="selectDictor(item.name)" :class="{active:props.modelValue.includes(item.name)}" class="dictor" v-for="item in store.getters.dictors" :key="item.id">
+        <div
+            @click.prevent="selectDictor(item.name)"
+            :class="{active:props.modelValue.includes(item.name)}" class="dictor"
+            v-for="item in store.getters.dictors" :key="item.id"
+            v-show="!(props.multi == false && item.irv == 0)"
+            >
             <div class="name">{{ item.name }}</div>
             <!-- <audio controls :src="item.file"></audio> -->
         </div>

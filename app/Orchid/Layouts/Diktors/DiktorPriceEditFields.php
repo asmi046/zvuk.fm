@@ -67,6 +67,11 @@ class DiktorPriceEditFields extends Rows
                 ->required()
                 ->horizontal(),
 
+            Input::make('interval.ivr_music_cost')
+                ->title('Цена irv + музыка')
+                ->required()
+                ->horizontal(),
+
             Input::make('interval.dop_cost')
                 ->title('Цена за доп')
                 ->required()

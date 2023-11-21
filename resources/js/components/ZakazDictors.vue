@@ -20,31 +20,26 @@
     const store = useStore()
     const emit = defineEmits(['update:modelValue'])
 
-
-    // watch(() => [props.modelValue.value], function(nv, old) {
-    //     console.log('33')
-    //     console.log(props.modelValue.value)
-    //     console.log(nv.value)
-    //     console.log(old.value)
-    //     selected_dictors.value = nv
-    // });
-
     function selectDictor(item) {
 
         if (props.multi)
         {
             console.log(props.modelValue)
             if(props.modelValue.includes(item))
-                props.modelValue.value.splice(props.modelValue.value.indexOf(item),1)
+                props.modelValue.splice(props.modelValue.indexOf(item),1)
             else
-                props.modelValue.value.push(item)
+                props.modelValue.push(item)
         } else {
-            props.modelValue.value = [item]
-            console.log(props.modelValue.value)
+            let mass = []
+            mass.push(item)
+            props.modelValue.splice(0, 2)
+            props.modelValue.push(item)
+
+            console.log(props.modelValue)
         }
 
 
-        updateValue(props.modelValue.value)
+        updateValue(props.modelValue)
     }
 
     function updateValue(value) {

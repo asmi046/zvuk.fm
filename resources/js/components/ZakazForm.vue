@@ -39,7 +39,7 @@
 
         <div class="chrono_text chrono_text_price">
             <h3>Цена:</h3>
-            <p>0  ₽</p>
+            <p>{{ zak_price }}  ₽</p>
         </div>
 
         <div class="quill_wrapper">
@@ -66,6 +66,7 @@
 
 <script>
 import {  watch, ref } from 'vue';
+import { useStore } from 'vuex'
 
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
@@ -90,29 +91,74 @@ export default {
         let zak_type_list = ["Голос", "Ролик", "IVR"]
 
         let zak_obr_type = ref("Без обработки")
-        let zak_obr_type_list = ["Без обработки", "Базовая обработка", "Почистить в один дубль"]
+        let zak_obr_type_list = ["Без обработки", "Базовые обработки", "Почистить в один дубль"]
 
         let zak_irv_type = ref("Без музыки")
         let zak_irv_type_list = ["Без музыки", "С музыкой"]
 
-        let select_diktors = ref(["Аврора", "Максим"])
+        let select_diktors = ref(["Щербатюк Максим", "Генералова Елена"])
 
         let result_text = ref('Стандартный:<br/>Игровой:<br/>Медленный: <br/> Страниц текста всего:')
 
+        let zak_price = ref(0)
+
         let standart_chrono = ref(0)
-        let multiselect = ref(true);
+        let multiselect = ref(true)
+
+        const store = useStore()
 
         watch(() => zak_type.value, function() {
             select_diktors.value = []
             multiselect.value = zak_type.value !== "IVR"
-            console.log(select_diktors.value)
         });
+
+        watch(() => [zak_type.value, zak_obr_type.value, select_diktors, zak_irv_type.value.length, standart_chrono.value], function() {
+            allCalcPrice()
+        });
+
+        watch(() => select_diktors.value.length, function() {
+            allCalcPrice()
+            console.log(select_diktors.length)
+        });
+
+        const allCalcPrice = () => {
+            zak_price.value = 0
+            if (zak_type.value == "Голос") zak_price.value = golosCalc(standart_chrono.value, zak_obr_type.value, select_diktors.value)
+        }
+
+        const golosCalc = (hrono ,dop, diktors) => {
+            let total = 0
+            for (let diktor_index in store.getters.dictors) {
+                let diktor = store.getters.dictors[diktor_index]
+
+                if (!diktors.includes(diktor.name)) continue;
+
+
+                for (let price_interval_index in diktor.price_table) {
+
+                    let price_interval = diktor.price_table[price_interval_index]
+
+                    if ((hrono >= price_interval.start) && (hrono<=price_interval.finish)) {
+
+                        if (dop == "Без обработки") total += parseFloat(price_interval.system_cost)
+                        if (dop == "Базовые обработки") total += parseFloat(price_interval.obr_standatr)
+                        if (dop == "Почистить в один дубль") total += parseFloat(price_interval.obr_one)
+
+                    }
+
+                }
+            }
+
+                return total
+        }
+
 
         const diktorTextChenge = () => {
             let clear_text = diktor_text_editor.value.getText().trim()
             let result = calcHronoTime(correctHronoText(clear_text))
             result_text.value = result.resultText
             standart_chrono.value = result.standart
+
         }
 
         const diktor_text_editor = ref(null)
@@ -132,6 +178,7 @@ export default {
 
             diktor_text_editor,
             select_diktors,
+            zak_price,
             diktorTextChenge
         }
     }

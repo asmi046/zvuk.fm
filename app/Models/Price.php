@@ -20,6 +20,7 @@ class Price extends Model
         'system_cost',
         'sample_cost',
         'ivr_cost',
+        'ivr_music_cost',
         'dop_cost',
         'obr_standatr',
         'obr_one',

@@ -2,7 +2,7 @@
     <form class="zakaz_form" action="">
         <zakaz-dictors v-model="select_diktors" :multi="multiselect"></zakaz-dictors>
         <div class="quill_wrapper">
-            <label for="">Введите текст для диктора</label>
+            <label for="">Введите текст для диктора<span class="required">*</span></label>
             <quill-editor
                 ref="diktor_text_editor"
                 theme="snow"
@@ -44,20 +44,30 @@
 
         <div class="quill_wrapper">
             <label for="">Введите комментарий к заказу</label>
-            <quill-editor theme="snow" contentType="html" :toolbar="['bold', 'italic', 'underline']" ></quill-editor>
+            <quill-editor
+                theme="snow"
+                contentType="html"
+                :toolbar="['bold', 'italic', 'underline']"
+                v-model:content="comment"
+                ></quill-editor>
         </div>
 
-        <label for="file">Прикрепите файл:</label>
-        <input type="file" accept="audio/*" id="file">
+        <label for="file">Прикрепите файл</label>
+        <input type="file" accept="audio/*" id="file" ref="lfile">
 
 
 
-        <label for="type_calc">Введите ваш email:</label>
+        <label for="type_calc">Введите ваш email<span class="required">*</span></label>
         <input v-model="email" type="text" id="email">
 
-        <label for="type_calc">Введите ваш телефон:</label>
+        <label for="type_calc">Введите ваш телефон<span class="required">*</span></label>
         <input v-model="phone" type="text" id="phone">
 
+        <div class="error_list">
+            <div v-for="(item, index) in error_list" :key="index" class="error">
+                {{ item }}
+            </div>
+        </div>
         <div class="chrono_form__control_panel">
             <button @click.prevent="sendOrder">Отправить</button>
         </div>
@@ -90,6 +100,7 @@ export default {
         let phone = ref("");
 
         let content = ref("");
+        let comment = ref("");
         let zak_type = ref("Голос")
         let zak_type_list = ["Голос", "Ролик", "IVR"]
 
@@ -275,30 +286,63 @@ export default {
         }
 
         const diktor_text_editor = ref(null)
+        const lfile = ref(null)
 
         const sendOrder = () => {
-            axios.post("/create_order", {
-                _token: document.querySelector('meta[name="_token"]').content,
-                order: {
-                    'content':content.value,
-                    'zak_type':zak_type.value,
-                    'obrabotka':zak_obr_type.value,
-                    'irv_muz':zak_irv_type.value,
-                    'price':zak_price.value,
-                    "email":email.value,
-                    "phone":phone.value,
-                    'standart_chrono':standart_chrono.value,
+            error_list.value = []
+            if (content.value == "") error_list.value.push("Напишите текст для диктора")
+            if (select_diktors.value.length == 0) error_list.value.push("Выберите диктора")
+            if (email.value == "") error_list.value.push("Введите электронную почту")
+            if (phone.value == "") error_list.value.push("Введите телефон")
+
+            if (error_list.value.length != 0 ) return;
+
+            let sendet_data = new FormData()
+
+            sendet_data.append("_token", document.querySelector('meta[name="_token"]').content)
+            sendet_data.append('content', content.value)
+            sendet_data.append('comment', comment.value)
+            sendet_data.append('zak_type', zak_type.value)
+            sendet_data.append('obrabotka', zak_obr_type.value)
+            sendet_data.append('irv_muz', zak_irv_type.value)
+            sendet_data.append('price', zak_price.value)
+            sendet_data.append("email", email.value)
+            sendet_data.append("phone", phone.value)
+            sendet_data.append('standart_chrono', standart_chrono.value)
+            if (lfile.value.files[0])
+                sendet_data.append("files", lfile.value.files[0])
+            else
+                sendet_data.append("files", "")
+
+            for (var i = 0; i < select_diktors.value.length; i++) {
+                sendet_data.append('diktors[]', select_diktors.value[i]);
+            }
+
+            axios.post("/create_order", sendet_data,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
                 }
-            })
+            )
             .then((response) => {
                 console.log(response)
+                if (response.data.id != undefined) {
+                    document.location.href = "/thencs"
+                } else alert("Произошла ошибка попробуйте еще раз!")
             })
-            .catch( error => console.log(error));
+            .catch( error => {
+                console.log(error)
+                alert("Произошла ошибка попробуйте еще раз!")
+            });
 
         }
 
+        let error_list = ref([])
+
         return {
             content,
+            comment,
             zak_type,
             zak_type_list,
             zak_obr_type,
@@ -310,11 +354,14 @@ export default {
 
             multiselect,
 
+
             diktor_text_editor,
+            lfile,
             select_diktors,
             zak_price,
             email,
             phone,
+            error_list,
             diktorTextChenge,
             sendOrder
         }

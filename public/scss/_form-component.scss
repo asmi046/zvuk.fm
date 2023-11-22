@@ -5,6 +5,11 @@ form {
         border:none
     }
 
+    .required {
+        color: $mred;
+        font-weight: bold;
+    }
+
     button {
         outline: none;
         background-color: $msgray;
@@ -63,6 +68,20 @@ form {
         border: 1px solid $mcomponentgray;
         border-radius: 10px;
     }
+
 }
 
+.error_list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .error{
+        background-color: $mred;
+        color: white;
+        padding: 2px 15px;
+        margin: 5px 10px 5px 0;
+        font-size: 12px;
+        border-radius: $brad20;
+    }
+}
 

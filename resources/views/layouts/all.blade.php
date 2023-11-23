@@ -11,7 +11,7 @@
     <meta property="og:title" content="@yield('title')" />
     <meta property="og:description" content="@yield('description')" />
     <meta property="og:url" content="{{route('home')}}" />
-    <meta property="og:site_name" content="Портал правовой информации Курской области" />
+    <meta property="og:site_name" content="Студия звукозаписи ЭПИЦЕНТР ZVUK.FM" />
     <meta property="og:image" content="{{asset('img/og_img.jpg')}}" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta name="twitter:card" content="summary_large_image" />

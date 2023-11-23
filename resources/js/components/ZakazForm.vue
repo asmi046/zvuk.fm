@@ -23,7 +23,7 @@
                 <div class="elem_wripper" v-show="zak_type == 'Голос'">
                     <zakaz-select  label="Обработка:" :list="zak_obr_type_list" v-model="zak_obr_type" ></zakaz-select>
                 </div>
-                <p class="information" v-show="zak_type == 'IVR'">Расчет ведется за каждый элемент IVR а не по общему хронометражу</p>
+                <p class="information" v-show="zak_type == 'IVR'">Расчет ведется за каждый элемент IVR а не по общему хронометража</p>
                 <div class="elem_wripper" v-show="zak_type == 'IVR'">
                     <zakaz-select  label="Дополнительно:" :list="zak_irv_type_list" v-model="zak_irv_type" ></zakaz-select>
                 </div>
@@ -60,7 +60,7 @@
         <label for="type_calc">Введите ваш email<span class="required">*</span></label>
         <input v-model="email" type="text" id="email">
 
-        <label for="type_calc">Введите ваш телефон<span class="required">*</span></label>
+        <label for="type_calc">Введите ваш телефон</label>
         <input v-model="phone" type="text" id="phone">
 
         <div class="error_list">
@@ -110,7 +110,7 @@ export default {
         let zak_irv_type = ref("Без музыки")
         let zak_irv_type_list = ["Без музыки", "С музыкой"]
 
-        let select_diktors = ref(["Щербатюк Максим", "Генералова Елена"])
+        let select_diktors = ref([])
 
         let result_text = ref('Стандартный:<br/>Игровой:<br/>Медленный: <br/> Страниц текста всего:')
 
@@ -297,7 +297,6 @@ export default {
             if (content.value == "") error_list.value.push("Напишите текст для диктора")
             if (select_diktors.value.length == 0) error_list.value.push("Выберите диктора")
             if (email.value == "") error_list.value.push("Введите электронную почту")
-            if (phone.value == "") error_list.value.push("Введите телефон")
 
             if (error_list.value.length != 0 ) return;
 

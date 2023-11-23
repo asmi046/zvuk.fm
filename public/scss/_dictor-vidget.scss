@@ -74,6 +74,11 @@
                 background-color: #7fff00;
             }
 
+            span.active_do:before {
+                content: "";
+                background-color: #ffa500;
+            }
+
             span.no_active:before {
                 content: "";
                 background-color: red;

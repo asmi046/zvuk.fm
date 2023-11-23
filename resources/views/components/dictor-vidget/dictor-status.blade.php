@@ -2,7 +2,8 @@
     <span><a target="_blank" href="{{$item->actor->audio}}">{{$item->actor->name}}</a></span>
     <span
     @class(["status",
-        "active" => ($item->status === "в студии до")||($item->status === "ожидается к"),
+        "active_do" => ($item->status === "в студии до"),
+        "active" => ($item->status === "ожидается к"),
         "no_active" => ($item->status === "записан")
     ])
     >{{$item->status}}</span>

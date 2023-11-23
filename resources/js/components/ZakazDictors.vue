@@ -1,5 +1,5 @@
 <template>
-    <label for="type_calc">Выберите дикторов:</label>
+    <label for="type_calc">Выберите дикторов<span class="required">*</span>:</label>
     <div class="dictors_list_mini">
         <div
             @click.prevent="selectDictor(item.name)"

@@ -295,6 +295,7 @@ export default {
         const sendOrder = () => {
             error_list.value = []
             if (content.value == "") error_list.value.push("Напишите текст для диктора")
+            if (select_diktors.value.length == 0) error_list.value.push("Выберите диктора")
             if (email.value == "") error_list.value.push("Введите электронную почту")
 
             if (error_list.value.length != 0 ) return;

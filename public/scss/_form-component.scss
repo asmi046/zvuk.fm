@@ -85,3 +85,8 @@ form {
     }
 }
 
+@media screen and (max-width:768px){
+    .coll2 {
+        flex-direction: column;
+    }
+}

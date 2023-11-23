@@ -8,6 +8,10 @@ use App\Services\IncomingSevice;
 
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\BackMail;
+
+
 class OrderController extends Controller
 {
     public function create_order(IncomingSevice $order, Request $request) {
@@ -46,6 +50,8 @@ class OrderController extends Controller
         ];
 
         $result = $order->send_order("incoming/create", "POST", $sendet_data);
+
+        Mail::to($data["email"])->send(new BackMail($data, $files));
 
         return $result;
     }

@@ -39,7 +39,7 @@
 
         <div class="chrono_text chrono_text_price">
             <h3>Цена:</h3>
-            <p>{{ zak_price }}  ₽</p>
+            <p>{{ zak_price }}</p>
         </div>
 
         <div class="quill_wrapper">
@@ -114,7 +114,7 @@ export default {
 
         let result_text = ref('Стандартный:<br/>Игровой:<br/>Медленный: <br/> Страниц текста всего:')
 
-        let zak_price = ref(0)
+        let zak_price = ref("0 ₽")
 
         let standart_chrono = ref(0)
         let multiselect = ref(true)
@@ -144,10 +144,12 @@ export default {
 
 
         const allCalcPrice = () => {
-            zak_price.value = 0
-            if (zak_type.value == "Голос") zak_price.value = golosCalc(standart_chrono.value, zak_obr_type.value, select_diktors.value)
-            if (zak_type.value == "Ролик") zak_price.value = golosRolik(standart_chrono.value, select_diktors.value)
-            if (zak_type.value == "IVR") zak_price.value = golosIVR(standart_chrono.value, zak_irv_type.value, select_diktors.value)
+            zak_price.value = "0 ₽"
+            if (zak_type.value == "Голос") zak_price.value = golosCalc(standart_chrono.value, zak_obr_type.value, select_diktors.value) + " ₽"
+            if (zak_type.value == "Ролик") zak_price.value = golosRolik(standart_chrono.value, select_diktors.value) + " ₽"
+            if (zak_type.value == "IVR") zak_price.value = golosIVR(standart_chrono.value, zak_irv_type.value, select_diktors.value) + " ₽"
+
+            if (zak_price.value == "-1 ₽") zak_price.value = "Индивидуальный расссчет"
         }
 
         const golosCalc = (hrono ,dop, diktors) => {
@@ -176,9 +178,10 @@ export default {
                 }
 
                 if (chenge == false) {
-                    if (dop == "Без обработки") total += parseFloat(diktor.price_table[diktor.price_table.length - 1].system_cost)
-                    if (dop == "Базовые обработки") total += parseFloat(diktor.price_table[diktor.price_table.length - 1].obr_standatr)
-                    if (dop == "Почистить в один дубль") total += parseFloat(diktor.price_table[diktor.price_table.length - 1].obr_one)
+                    total = -1
+                    // if (dop == "Без обработки") total += parseFloat(diktor.price_table[diktor.price_table.length - 1].system_cost)
+                    // if (dop == "Базовые обработки") total += parseFloat(diktor.price_table[diktor.price_table.length - 1].obr_standatr)
+                    // if (dop == "Почистить в один дубль") total += parseFloat(diktor.price_table[diktor.price_table.length - 1].obr_one)
                 }
 
 
@@ -212,8 +215,9 @@ export default {
                 }
 
                 if (chenge == false) {
-                    if (dop == "Без музыки") total += parseFloat(diktor.price_table[diktor.price_table.length - 1].ivr_cost)
-                    if (dop == "С музыкой") total += parseFloat(diktor.price_table[diktor.price_table.length - 1].ivr_music_cost)
+                    total = -1
+                    // if (dop == "Без музыки") total += parseFloat(diktor.price_table[diktor.price_table.length - 1].ivr_cost)
+                    // if (dop == "С музыкой") total += parseFloat(diktor.price_table[diktor.price_table.length - 1].ivr_music_cost)
                 }
 
 
@@ -224,7 +228,7 @@ export default {
 
         const golosRolik = (hrono, diktors) => {
             if (hrono == 0) return 0
-            let max_price = 0
+            let max_price = -1
             let name = ""
 
             for (let diktor_index in store.getters.dictors) {

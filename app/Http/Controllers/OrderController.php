@@ -44,10 +44,15 @@ class OrderController extends Controller
                 "time" => $data["standart_chrono"],
                 "phone" => "Да",
                 "email" => $data["email"],
-                "mobile" => $data["phone"]
+                "mobile" => $data["phone"],
+                "obrabotka" => $data["obrabotka"],
+                "irv_muz" => $data["irv_muz"],
+                "price" => $data["price"]
             ]
 
         ];
+
+        file_put_contents("sendet_data.json", json_encode($sendet_data, true));
 
         $result = $order->send_order("incoming/create", "POST", $sendet_data);
 

@@ -20,6 +20,7 @@ class OrderController extends Controller
 
         $diktors = $request->input('diktors');
         $comment = $data["comment"];
+        $comment .= "\n\r Требуемый хронометраж: ".$data["wonted_chrono"]."\n\r";
         if ($data["zak_type"] === "Голос")
             $comment .= "\n\r Обработка: ".$data["obrabotka"];
 

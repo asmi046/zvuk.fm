@@ -20,12 +20,12 @@ class OrderController extends Controller
 
         $diktors = $request->input('diktors');
         $comment = $data["comment"];
-        $comment .= "\n\r Требуемый хронометраж: ".$data["wonted_chrono"]."\n\r";
+        $comment .= "<p><strong>Требуемый хронометраж:</strong> ".$data["wonted_chrono"]."</p>";
         if ($data["zak_type"] === "Голос")
-            $comment .= "\n\r Обработка: ".$data["obrabotka"];
+            $comment .= "<p><strong>Обработка:</strong> ".$data["obrabotka"]. "</p>";
 
         if ($data["zak_type"] === "IVR")
-            $comment .= "\n\r Музыка IVR: ".$data["irv_muz"];
+            $comment .= "<p><strong>Музыка IVR:</strong> ".$data["irv_muz"]. "</p>";
 
         $files = [];
         if (!empty($data['files'])) {

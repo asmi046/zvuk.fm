@@ -55,6 +55,11 @@ class DiktorsListTable extends Table
                         ->route('platform.diktors_edit',$element->id)
                         ->icon('pencil'),
 
+                    Button::make('Копировать')
+                        ->icon('copy')
+                        ->confirm(__('Будет создана копия данной запис! Вы согласны?'))
+                        ->method('copy_field', ["id" => $element->id]),
+
                     Button::make('Удалить')
                         ->icon('trash')
                         ->confirm(__('Данная категория будет удалена навсегда! Вы согласны?'))

@@ -337,7 +337,7 @@ export default {
             .then((response) => {
                 console.log(response)
                 if (response.data.id != undefined) {
-                    document.location.href = "/thencs"
+                    document.location.href = "/thencs?uniq_code="+response.data.uniq_code
                 } else alert("Произошла ошибка попробуйте еще раз!")
             })
             .catch( error => {

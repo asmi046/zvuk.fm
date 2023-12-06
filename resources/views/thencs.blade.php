@@ -14,6 +14,14 @@
 
     <div class="text_styles">
         <p>Наши специалисты свяжутся с Вами в ближайшее время.</p>
+
+        @if (request()->get("uniq_code"))
+            <p>
+                {!! QrCode::size(200)->generate(config('studio.tg_bot').request()->get("uniq_code")); !!}
+            </p>
+            <p>Отсканируйте Qr код и получайте оповещение в Telegram о статусе Вашего заказа.</p>
+        @endif
+
     </div>
 
 @endsection

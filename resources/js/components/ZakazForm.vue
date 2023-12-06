@@ -14,6 +14,10 @@
                 ></quill-editor>
         </div>
 
+
+        <label for="type_calc">Требуемый хронометраж</label>
+        <input v-model="wonted_chrono" type="number" id="wonted_chrono">
+
         <div class="coll2">
             <div class="col">
                 <div class="elem_wripper">
@@ -39,7 +43,7 @@
 
         <div class="chrono_text chrono_text_price">
             <h3>Цена:</h3>
-            <p>{{ zak_price }}</p>
+            <p>{{ zak_price }} <span v-show="zak_price !== 'Индивидуальный расссчет'">₽</span></p>
         </div>
 
         <div class="quill_wrapper">
@@ -114,7 +118,8 @@ export default {
 
         let result_text = ref('Стандартный:<br/>Игровой:<br/>Медленный: <br/> Страниц текста всего:')
 
-        let zak_price = ref("0 ₽")
+        let zak_price = ref("0")
+        let wonted_chrono = ref("20")
 
         let standart_chrono = ref(0)
         let multiselect = ref(true)
@@ -144,12 +149,12 @@ export default {
 
 
         const allCalcPrice = () => {
-            zak_price.value = "0 ₽"
-            if (zak_type.value == "Голос") zak_price.value = golosCalc(standart_chrono.value, zak_obr_type.value, select_diktors.value) + " ₽"
-            if (zak_type.value == "Ролик") zak_price.value = golosRolik(standart_chrono.value, select_diktors.value) + " ₽"
-            if (zak_type.value == "IVR") zak_price.value = golosIVR(standart_chrono.value, zak_irv_type.value, select_diktors.value) + " ₽"
+            zak_price.value = "0"
+            if (zak_type.value == "Голос") zak_price.value = golosCalc(standart_chrono.value, zak_obr_type.value, select_diktors.value)
+            if (zak_type.value == "Ролик") zak_price.value = golosRolik(standart_chrono.value, select_diktors.value)
+            if (zak_type.value == "IVR") zak_price.value = golosIVR(standart_chrono.value, zak_irv_type.value, select_diktors.value)
 
-            if (zak_price.value == "-1 ₽") zak_price.value = "Индивидуальный расссчет"
+            if (zak_price.value == "-1") zak_price.value = "Индивидуальный расссчет"
         }
 
         const golosCalc = (hrono ,dop, diktors) => {
@@ -310,6 +315,7 @@ export default {
             sendet_data.append('irv_muz', zak_irv_type.value)
             sendet_data.append('price', zak_price.value)
             sendet_data.append("email", email.value)
+            sendet_data.append("wonted_chrono", wonted_chrono.value)
             sendet_data.append("phone", phone.value)
             sendet_data.append('standart_chrono', standart_chrono.value)
             if (lfile.value.files[0])
@@ -354,6 +360,7 @@ export default {
 
             zak_irv_type,
             zak_irv_type_list,
+            wonted_chrono,
 
             multiselect,
 

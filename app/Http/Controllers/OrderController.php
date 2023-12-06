@@ -20,9 +20,11 @@ class OrderController extends Controller
 
         $diktors = $request->input('diktors');
         $comment = $data["comment"];
-        $comment .= "\n\r Обработка: ".$data["obrabotka"];
-        $comment .= "\n\r Музыка IVR: ".$data["irv_muz"];
-        $comment .= "\n\r Цена: ".$data["price"]." руб.";
+        if ($data["zak_type"] === "Голос")
+            $comment .= "\n\r Обработка: ".$data["obrabotka"];
+
+        if ($data["zak_type"] === "IVR")
+            $comment .= "\n\r Музыка IVR: ".$data["irv_muz"];
 
         $files = [];
         if (!empty($data['files'])) {
@@ -39,6 +41,7 @@ class OrderController extends Controller
                 "actors" => $diktors,
                 "files" => $files,
                 "text"=> $data["content"],
+                "wonted_chrono"=> $data["wonted_chrono"],
                 "comment" => $comment,
                 "type" => $data["zak_type"],
                 "time" => $data["standart_chrono"],

@@ -31,7 +31,7 @@ class OrderController extends Controller
         if (!empty($data['files'])) {
             $filename = $data['files']->getClientOriginalName();
             Storage::disk('public')->putFileAs('order_files', $data['files'], $filename);
-            $files = [config('app.url').Storage::url($filename)];
+            $files = [config('app.url').Storage::url("order_files/".$filename)];
         }
 
 

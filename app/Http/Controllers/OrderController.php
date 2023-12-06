@@ -56,7 +56,7 @@ class OrderController extends Controller
 
         ];
 
-        file_put_contents("sendet_data.json", json_encode($sendet_data, true));
+        // file_put_contents("sendet_data.json", json_encode($sendet_data, true));
 
         $result = $order->send_order("incoming/create", "POST", $sendet_data);
 

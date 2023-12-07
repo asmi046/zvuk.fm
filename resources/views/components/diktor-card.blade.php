@@ -10,7 +10,7 @@
     <div class="info">
         <div class="text">
             <h2>{{$item->name}}</h2>
-            <p>{!! $item->description !!}</p>
+            {!! $item->description !!}
             <p><strong>{{$item->price_table[0]->system_cost}} ₽</strong></p>
         </div>
         <div class="audio">

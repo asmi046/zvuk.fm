@@ -119,7 +119,7 @@ export default {
         let result_text = ref('Стандартный:<br/>Игровой:<br/>Медленный: <br/> Страниц текста всего:')
 
         let zak_price = ref("0")
-        let wonted_chrono = ref("20")
+        let wonted_chrono = ref("0")
 
         let standart_chrono = ref(0)
         let multiselect = ref(true)
@@ -291,7 +291,7 @@ export default {
             let result = calcHronoTime(correctHronoText(clear_text))
             result_text.value = result.resultText
             standart_chrono.value = result.standart
-
+            wonted_chrono.value = result.standart
         }
 
         const diktor_text_editor = ref(null)

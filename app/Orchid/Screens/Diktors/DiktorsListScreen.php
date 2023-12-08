@@ -11,6 +11,9 @@ use Orchid\Screen\Actions\Link;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Toast;
 
+use Orchid\Filter\Filterable;
+
+
 class DiktorsListScreen extends Screen
 {
     /**
@@ -21,7 +24,7 @@ class DiktorsListScreen extends Screen
     public function query(): iterable
     {
         return [
-            "diktors" => Diktor::orderByDesc("created_at")->paginate(15)
+            "diktors" => Diktor::select()->filters()->defaultSort('order')->paginate(30)
         ];
     }
 

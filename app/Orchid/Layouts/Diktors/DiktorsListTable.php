@@ -35,9 +35,10 @@ class DiktorsListTable extends Table
     protected function columns(): iterable
     {
         return [
-            TD::make('id', 'id')->width("10%"),
+            TD::make('id', 'id')->width("5%"),
             TD::make('name', 'Имя')->width("30%"),
-            TD::make('gender', 'Пол')->width("10%"),
+            TD::make('order', 'Порядок')->width("5%")->sort(),
+            TD::make('gender', 'Пол')->width("5%"),
             TD::make('description', 'Описание')->width("45%")->render(function($element) {
                 return  mb_strimwidth(strip_tags($element->description), 0, 60, "...");
             }),

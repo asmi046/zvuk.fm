@@ -9,7 +9,7 @@ use App\Models\Diktor;
 class DiktorController extends Controller
 {
     public function index() {
-        $diktors = Diktor::all();
+        $diktors = Diktor::orderBy('order')->get();
 
         return view('diktors', ['diktors' => $diktors]);
     }

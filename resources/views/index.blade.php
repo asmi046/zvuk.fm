@@ -25,11 +25,22 @@
 
             <div class="prices">
                 <div class="price_info">
-                    Дикторские голоса <span>300</span> рублей
+                    @if(isset($options["price_voice"]))
+                        {!! $options["price_voice"] !!}
+                    @else
+                        Дикторские голоса <span>300</span> рублей
+                    @endif
+
+
                 </div>
 
                 <div class="price_info">
-                    Радиоролики <span>800</span> рублей
+                    @if(isset($options["price_radio"]))
+                        {!! $options["price_radio"] !!}
+                    @else
+                        Радиоролики <span>800</span> рублей
+                    @endif
+
                 </div>
             </div>
 

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\BackMail;
+use App\Mail\AdminMail;
 
 
 class OrderController extends Controller
@@ -61,6 +62,7 @@ class OrderController extends Controller
         $result = $order->send_order("incoming/create", "POST", $sendet_data);
 
         Mail::to($data["email"])->send(new BackMail($data, $files));
+        Mail::to("zakaz@zvuk.fm")->send(new AdminMail($data, $files));
 
         return $result;
     }

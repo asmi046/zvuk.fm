@@ -23,7 +23,7 @@
     .table{
         display: flex;
         flex-direction: column;
-        font-size: 14px;
+        font-size: 13px;
 
         .row {
             display: flex;
@@ -39,15 +39,16 @@
             }
 
             span:first-child {
-                width:38%
+                width:46%;
+                padding-right: 2%;
             }
 
             span:nth-child(2) {
-                width:38%
+                width:32%
             }
 
             span:last-child {
-                width:15%;
+                width:14%;
                 text-align: right;
                 margin-left:auto;
             }
@@ -64,7 +65,7 @@
                     background-color: $msgray;
                     position: absolute;
                     left: 0;
-                    top: calc(50% - 4px);
+                    top: 5px;
                 }
             }
 

@@ -16,7 +16,7 @@ class IncomingSevice {
             'Content-Length: ' . strlen($payload_json)
         ];
 
-        $header_line[] = "Authorization: Bearer 1|".$accessToken;
+        $header_line[] = "Authorization: Bearer ".$accessToken;
 
         $ch = curl_init(config('studio.studio_url').$url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);

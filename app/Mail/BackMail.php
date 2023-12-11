@@ -38,7 +38,7 @@ class BackMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address("studiaepitsenter@yandex.ru", "Студия Эпицентр"),
+            from: new Address("zakaz@zvuk.fm", "Студия Эпицентр"),
             subject: 'Студией Эпицентр ZVUK.FM получен он-лайн заказ.',
         );
     }

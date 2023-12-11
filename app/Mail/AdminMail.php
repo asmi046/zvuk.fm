@@ -38,7 +38,7 @@ class AdminMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address("studiaepitsenter@yandex.ru", "Студия Эпицентр"),
+            from: new Address("zakaz@zvuk.fm", "Студия Эпицентр"),
             subject: 'On-line заказ ZVUK.FM',
         );
     }

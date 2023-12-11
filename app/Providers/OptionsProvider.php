@@ -57,7 +57,7 @@ class OptionsProvider extends ServiceProvider
 
                 // dd($today);
 
-                dd($tomorrow);
+                // dd($tomorrow);
 
                 View::share('schedule_today', $today);
                 View::share('schedule_tomorrow', $tomorrow);

@@ -69,8 +69,9 @@
                     <x-annonce></x-annonce>
 
 
-
-                    <x-dictor-vidget.main name="Актеры на сегодня" :data="$schedule_today"></x-dictor-vidget.main>
+                    @if (!empty($schedule_today))
+                        <x-dictor-vidget.main name="Актеры на сегодня" :data="$schedule_today"></x-dictor-vidget.main>
+                    @endif
 
                     @if (!empty($schedule_tomorrow))
                         <x-dictor-vidget.main name="Актеры на завтра" :data="$schedule_tomorrow"></x-dictor-vidget.main>

@@ -41,9 +41,13 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Дикторы')
             ->route('platform.diktors'),
 
+            Menu::make('Аудиоролики')
+            ->route('platform.audio_roliki'),
+
             Menu::make('Опции сайта')
             ->route('platform.options')
             ->title('Настройки сайта'),
+
 
             // Menu::make('Get Started')
             //     ->icon('bs.book')

@@ -24,6 +24,10 @@ use App\Orchid\Screens\FileUsers\FileUsersCreateScreen;
 use App\Orchid\Screens\FileUsers\FileUsersEditScreen;
 use App\Orchid\Screens\FileUsers\FileUsersListScreen;
 
+use App\Orchid\Screens\AudioFiles\AudioFilesCreateScreen;
+use App\Orchid\Screens\AudioFiles\AudioFilesEditScreen;
+use App\Orchid\Screens\AudioFiles\AudioFilesListScreen;
+
 use App\Orchid\Screens\Diktors\DiktorsCreateScreen;
 use App\Orchid\Screens\Diktors\DiktorsEditScreen;
 use App\Orchid\Screens\Diktors\DiktorsListScreen;
@@ -74,6 +78,22 @@ Route::screen('/fileusers/create', FileUsersCreateScreen::class)
     ->name('platform.fileusers_create')->breadcrumbs(fn (Trail $trail) => $trail
     ->parent('platform.fileusers')
     ->push(__('Добавление пользователя файлов'), route('platform.fileusers_create')));
+
+// Аудиоролики
+Route::screen('/audio_roliki', AudioFilesListScreen::class)
+    ->name('platform.audio_roliki')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.index')
+    ->push(__('Аудиоролики'), route('platform.audio_roliki')));
+
+Route::screen('/audio_roliki/{id}/edit', AudioFilesEditScreen::class)
+    ->name('platform.audio_roliki_edit')->breadcrumbs(fn (Trail $trail, $id) => $trail
+    ->parent('platform.audio_roliki')
+    ->push(__('Редактирование аудиоролика'), route('platform.audio_roliki_edit', $id)));
+
+Route::screen('/audio_roliki/create', AudioFilesCreateScreen::class)
+    ->name('platform.audio_roliki_create')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.audio_roliki')
+    ->push(__('Добавление аудиоролика'), route('platform.audio_roliki_create')));
 
 
 // Дикторы

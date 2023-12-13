@@ -88,7 +88,7 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import ZakazSelect from './ZakazSelect.vue';
 import ZakazDictors from './ZakazDictors.vue';
 
-import {  correctHronoText } from '../Hrono.js'
+import {  correctHronoText, formatResult } from '../Hrono.js'
 import { calcHronoTime } from '../HronoDopCalc.js'
 
 export default {
@@ -123,6 +123,8 @@ export default {
 
         let standart_chrono = ref(0)
         let multiselect = ref(true)
+
+        let hronoDelta = document.querySelector('meta[name="chrono_correct"]').content;
 
         const store = useStore()
 
@@ -289,9 +291,19 @@ export default {
         const diktorTextChenge = () => {
             let clear_text = diktor_text_editor.value.getText().trim()
             let result = calcHronoTime(correctHronoText(clear_text))
-            result_text.value = result.resultText
-            standart_chrono.value = result.standart
-            wonted_chrono.value = result.standart
+
+            let tmpStandartChrono = result.standart + Math.round((result.standart / 100)*hronoDelta);
+            let tmpGameChrono = result.game + Math.round((result.game / 100)*hronoDelta);
+            let tmpSlowChrono = result.slow + Math.round((result.slow / 100)*hronoDelta);
+            let tmpChronoText = 'Стандартный: '+ formatResult(tmpStandartChrono) +'<br/>Игровой: '+ formatResult(tmpGameChrono) +'<br/>Медленный: '+ formatResult(tmpSlowChrono) +'<br/> Страниц текста всего: '+result.pages
+
+            // console.log(formatResult(tmpStandartChrono) )
+            // console.log(tmpStandartChrono)
+            // console.log(result)
+
+            result_text.value = tmpChronoText
+            standart_chrono.value = tmpStandartChrono
+            wonted_chrono.value = tmpStandartChrono
         }
 
         const diktor_text_editor = ref(null)

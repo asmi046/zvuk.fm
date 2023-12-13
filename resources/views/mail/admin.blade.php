@@ -17,6 +17,6 @@
 
 @if (!empty($formData['files']))
     <h3>Прикрепленный файл:</h3>
-    <p>{{$formData['files']->getClientOriginalName()}}</p>
+    <p><a href="{{ config('app.url').Storage::url("order_files/".$formData['files']->getClientOriginalName()) }}">{{$formData['files']->getClientOriginalName()}}</a></p>
 @endif
 

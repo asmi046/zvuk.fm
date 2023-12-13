@@ -28,6 +28,14 @@ use App\Orchid\Screens\AudioFiles\AudioFilesCreateScreen;
 use App\Orchid\Screens\AudioFiles\AudioFilesEditScreen;
 use App\Orchid\Screens\AudioFiles\AudioFilesListScreen;
 
+use App\Orchid\Screens\Menu\MenuCreateScreen;
+use App\Orchid\Screens\Menu\MenuEditScreen;
+use App\Orchid\Screens\Menu\MenuListScreen;
+
+use App\Orchid\Screens\Page\PageCreateScreen;
+use App\Orchid\Screens\Page\PageEditScreen;
+use App\Orchid\Screens\Page\PageListScreen;
+
 use App\Orchid\Screens\Diktors\DiktorsCreateScreen;
 use App\Orchid\Screens\Diktors\DiktorsEditScreen;
 use App\Orchid\Screens\Diktors\DiktorsListScreen;
@@ -121,6 +129,39 @@ Route::screen('/diktors/{id}/price/create', DiktorIntervalCreateScreen::class)
     ->name('platform.diktors_price_create')->breadcrumbs(fn (Trail $trail, $id) => $trail
     ->parent('platform.diktors')
     ->push(__('Создание интервала и цен'), route('platform.diktors_price_create', $id)));
+
+
+// Меню
+Route::screen('/menu', MenuListScreen::class)
+    ->name('platform.menu')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.index')
+    ->push(__('Меню'), route('platform.menu')));
+
+Route::screen('/menu/{id}/edit', MenuEditScreen::class)
+    ->name('platform.menu_edit')->breadcrumbs(fn (Trail $trail, $id) => $trail
+    ->parent('platform.menu')
+    ->push(__('Редактирование пункта меню'), route('platform.menu_edit', $id)));
+
+Route::screen('/menu/create', MenuCreateScreen::class)
+    ->name('platform.menu_create')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.menu')
+    ->push(__('Добавление пункта меню'), route('platform.menu_create')));
+
+// Страницы
+Route::screen('/page', PageListScreen::class)
+    ->name('platform.page')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.index')
+    ->push(__('Страницы'), route('platform.page')));
+
+Route::screen('/page/{id}/edit', PageEditScreen::class)
+    ->name('platform.page_edit')->breadcrumbs(fn (Trail $trail, $id) => $trail
+    ->parent('platform.page')
+    ->push(__('Редактирование страницы'), route('platform.page_edit', $id)));
+
+Route::screen('/page/create', PageCreateScreen::class)
+    ->name('platform.page_create')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.page')
+    ->push(__('Добавление страницы'), route('platform.page_create')));
 
 
 // Main

@@ -386,7 +386,7 @@ function floorRound(val, precision) {
  * @returns string
  */
 //hronoTime в секундах
-function formatResult(hronoTime) {
+export function formatResult(hronoTime) {
     var result = '',
         //Часов в hronoTime
         hronoHour = Math.floor(hronoTime / 3600),

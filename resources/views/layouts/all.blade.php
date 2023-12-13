@@ -25,6 +25,8 @@
 
     <meta name="_token" content="{{ csrf_token() }}">
 
+    <meta name="chrono_correct" content="{{ isset($options['chrono_correct'])?$options['chrono_correct']:0 }}">
+
     <!-- Yandex.Metrika counter -->
         <script type="text/javascript" >
             (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};

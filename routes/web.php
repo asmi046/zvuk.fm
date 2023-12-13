@@ -7,6 +7,7 @@ use App\Http\Controllers\UserFileController;
 use App\Http\Controllers\AudiofileController;
 use App\Http\Controllers\DiktorController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use App\Http\Controllers\OrderController;
 */
 
 Route::get('/', [IndexController::class, "index"])->name('home');
+Route::get('/page/{slug}', [PageController::class, "index"])->name('page');
 Route::get('/contacts', [EasyPageController::class, "cantacts"])->name('cantacts');
 Route::get('/hronometraj', [EasyPageController::class, "chrono"])->name('chrono');
 

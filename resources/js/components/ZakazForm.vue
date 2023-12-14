@@ -299,7 +299,9 @@ export default {
 
             // console.log(formatResult(tmpStandartChrono) )
             // console.log(tmpStandartChrono)
-            // console.log(result)
+
+            console.log(result)
+            console.log(clear_text)
 
             result_text.value = tmpChronoText
             standart_chrono.value = tmpStandartChrono

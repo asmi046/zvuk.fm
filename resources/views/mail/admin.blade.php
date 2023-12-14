@@ -1,3 +1,4 @@
+<p>email: {!! $formData['email'] !!}</p>
 <p>Дата: {{date('d.m.Y H:i:s')}}</p>
 <p>Тип заказа: {{ $formData['zak_type'] }}</p>
 <h3>Текст:</h3>
@@ -13,7 +14,7 @@
 {!! $formData['comment'] !!}
 <br>
 <p>Телефон: {!! $formData['phone'] !!}</p>
-<p>email: {!! $formData['email'] !!}</p>
+
 
 @if (!empty($formData['files']))
     <h3>Прикрепленный файл:</h3>

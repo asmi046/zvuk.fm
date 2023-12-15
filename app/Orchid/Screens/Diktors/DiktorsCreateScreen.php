@@ -4,7 +4,7 @@ namespace App\Orchid\Screens\Diktors;
 
 use Orchid\Screen\Screen;
 
-use App\Models\FileUser;
+use App\Models\Diktor;
 
 use Orchid\Support\Facades\Layout;
 
@@ -63,13 +63,31 @@ class DiktorsCreateScreen extends Screen
     public function save_info(Request $request) {
 
         $request->validate([
-            'fileuser.uid' => ['required', 'integer',  Rule::unique('file_users', 'uid')],
-            'fileuser.name' => ['required', 'string']
+            'diktor.name' => ['required', 'string'],
+            'diktor.description' => ['required', 'string'],
+            'diktor.gender' => ['required', 'string'],
+            'diktor.order' => ['required', 'integer'],
         ]);
 
+        $data = $request->get('diktor');
+        if ($request->file('load.file')) {
+            $file = $request->file('load.file');
+            $file_name = $file->getClientOriginalName();
+            Storage::disk('public')->put(basename($file_name), file_get_contents($file), 'public');
+            $data['file'] =Storage::url(basename($file_name));
+        }
 
-        $item = FileUser::create($request->get('fileuser'));
+        if ($request->file('load.file_irv')) {
+            $file = $request->file('load.file_irv');
+            $file_name = $file->getClientOriginalName();
+            Storage::disk('public')->put(basename($file_name), file_get_contents($file), 'public');
+            $data['file_irv'] =Storage::url(basename($file_name));
+        }
 
-        return redirect()->route('platform.Diktors_edit', $item);
+
+
+        $item = Diktor::create($request->get('diktor'));
+
+        return redirect()->route('platform.diktors_edit', $item);
     }
 }

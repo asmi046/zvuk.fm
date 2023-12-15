@@ -19,6 +19,7 @@ class Diktor extends Model
     protected $fillable = [
         'name',
         'order',
+        'zak_order',
         'description',
         'irv',
         'img',

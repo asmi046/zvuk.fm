@@ -51,12 +51,21 @@ class DiktorsEditFields extends Rows
 
             Input::make('diktor.order')
                 ->type('number')
+                ->required()
                 ->title('Порядок вывода')
                 ->help('порядок вывода на сайте')
                 ->horizontal(),
 
+            Input::make('diktor.zak_order')
+                ->type('number')
+                ->required()
+                ->title('Порядок вывода на странице заказа')
+                ->help('Порядок вывода на странице заказа')
+                ->horizontal(),
+
             Quill::make('diktor.description')
                 ->title('Описание')
+                ->required()
                 ->help('Введите описание диктора')
                 ->horizontal(),
 

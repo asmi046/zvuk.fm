@@ -55,6 +55,11 @@
 <body>
 
     <main id="main">
+        @if ( Route::currentRouteName() !== 'online-zakaz')
+            <div class="mobile_zak_panel" >
+                <a href="{{route("online-zakaz")}}" class="clr_btn redbtn">Оформить On-line заказ</a>
+            </div>
+        @endif
 
         <x-header.main></x-header.main>
 

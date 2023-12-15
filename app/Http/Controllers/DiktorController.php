@@ -15,7 +15,7 @@ class DiktorController extends Controller
     }
 
     public function get_all() {
-        $diktors = Diktor::all();
+        $diktors = Diktor::select()->orderBy("zak_order")->get();
 
         return $diktors;
     }

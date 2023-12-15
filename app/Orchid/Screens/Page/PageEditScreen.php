@@ -11,6 +11,7 @@ use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Support\Facades\Toast;
 use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Actions\Link;
 
 use Orchid\Support\Color;
 
@@ -58,7 +59,12 @@ class PageEditScreen extends Screen
      */
     public function commandBar(): iterable
     {
-        return [];
+        return [
+            Link::make('Предпросмотр страницы')
+            ->target('_blanck')
+            ->href(route("page", $this->page->slug))
+            ->icon('arrow-up-left'),
+        ];
     }
 
     /**

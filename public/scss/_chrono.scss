@@ -59,5 +59,9 @@
 
     .chrono_form__control_panel{
         margin-top: 20px;
+        button {
+            width: 100%;
+            cursor: pointer;
+        }
     }
 }

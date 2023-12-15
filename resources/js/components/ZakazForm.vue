@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="chrono_form__control_panel">
-            <button @click.prevent="sendOrder">Отправить</button>
+            <button class="greenbtn" @click.prevent="sendOrder">Оформить заказ</button>
         </div>
     </form>
 </template>

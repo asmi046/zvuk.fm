@@ -30,7 +30,11 @@ class ScheduleFileSevice {
 
         $index = 0;
         foreach($doc->getElementsByTagName('li') as $node) {
-            if ($index == 0) {$index++; continue;}
+            if ($index == 0) {
+                $resultData["date"] = $node->textContent;
+                $index++; continue;
+            }
+
             $tmp = [];
             $tmp1 = [];
             $tmp1["name"] =  $node->getElementsByTagName('a')[0]->textContent;
@@ -49,6 +53,7 @@ class ScheduleFileSevice {
             $tmp["time_end"] =  $time;
 
             $resultData["data"][] = (object)$tmp;
+
             $index++;
         }
 

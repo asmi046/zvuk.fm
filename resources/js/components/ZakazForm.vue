@@ -1,6 +1,11 @@
 <template>
-    <form class="zakaz_form" action="">
-        <zakaz-dictors v-model="select_diktors" :multi="multiselect"></zakaz-dictors>
+    <type-selector v-model="zak_type"></type-selector>
+    <form v-show="zak_type != ''" class="zakaz_form" action="">
+        <zakaz-dictors
+            v-model="select_diktors"
+            :multi="multiselect"
+        ></zakaz-dictors>
+
         <div class="quill_wrapper">
             <label for="">Введите текст для диктора<span class="required">*</span></label>
             <quill-editor
@@ -17,17 +22,17 @@
 
         <label for="type_calc">Требуемый хронометраж</label>
         <input v-model="wonted_chrono" type="number" id="wonted_chrono">
-
+        <p class="information" v-show="zak_type == 'IVR'">Расчет ведется за каждый элемент IVR а не по общему хронометража</p>
         <div class="coll2">
             <div class="col">
-                <div class="elem_wripper">
+                <!-- <div class="elem_wripper">
                     <zakaz-select label="Выберите тип:" :list="zak_type_list" v-model="zak_type" ></zakaz-select>
-                </div>
+                </div> -->
 
                 <div class="elem_wripper" v-show="zak_type == 'Голос'">
                     <zakaz-select  label="Обработка:" :list="zak_obr_type_list" v-model="zak_obr_type" ></zakaz-select>
                 </div>
-                <p class="information" v-show="zak_type == 'IVR'">Расчет ведется за каждый элемент IVR а не по общему хронометража</p>
+
                 <div class="elem_wripper" v-show="zak_type == 'IVR'">
                     <zakaz-select  label="Дополнительно:" :list="zak_irv_type_list" v-model="zak_irv_type" ></zakaz-select>
                 </div>
@@ -90,13 +95,15 @@ import ZakazDictors from './ZakazDictors.vue';
 
 import {  correctHronoText, formatResult } from '../Hrono.js'
 import { calcHronoTime } from '../HronoDopCalc.js'
+import TypeSelector from './TypeSelector.vue';
 
 export default {
     components:{
-    QuillEditor,
-    ZakazSelect,
-    ZakazDictors
-},
+        TypeSelector,
+        QuillEditor,
+        ZakazSelect,
+        ZakazDictors
+    },
 
     setup() {
 
@@ -105,7 +112,7 @@ export default {
 
         let content = ref("");
         let comment = ref("");
-        let zak_type = ref("Голос")
+        let zak_type = ref("")
         let zak_type_list = ["Голос", "Ролик", "IVR"]
 
         let zak_obr_type = ref("Без обработки")

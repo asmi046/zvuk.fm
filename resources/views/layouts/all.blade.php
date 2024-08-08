@@ -53,7 +53,7 @@
     ])
 </head>
 <body>
-
+    @include('svg-icons')
     <main id="main">
         @if ( Route::currentRouteName() !== 'online-zakaz')
             <div class="mobile_zak_panel" >

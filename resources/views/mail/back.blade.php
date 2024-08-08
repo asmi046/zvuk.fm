@@ -6,6 +6,7 @@
 {!! $formData['content'] !!}
 <br>
 <p>Хронометраж: {{ $formData['standart_chrono'] }}</p>
+<p>Требуемый хронометраж: {{ $formData['wonted_chrono'] }}</p>
 <h3>Актеры:</h3>
 @foreach ( $formData['diktors'] as $item)
     <p>{{$item}}</p>

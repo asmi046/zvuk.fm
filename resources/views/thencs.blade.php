@@ -19,7 +19,15 @@
             <p>
                 {!! QrCode::size(200)->generate(config('studio.tg_bot').request()->get("uniq_code")); !!}
             </p>
-            <p>Отсканируйте Qr код и получайте оповещение в Telegram о статусе Вашего заказа. <br><br> Если не удобно сканировать Вы можете <a href="{{config('studio.tg_bot').request()->get("uniq_code")}}">перейдите по ссылке</a></p>
+            <p>Отсканируйте Qr код и получайте оповещение в Telegram о статусе Вашего заказа. <br><br> Если неудобно сканировать, Вы можете <a href="{{config('studio.tg_bot').request()->get("uniq_code")}}">перейти по ссылке</a></p>
+
+            <div class="qr_message">
+                <div class="warning_icon"></div>
+                <div class="text">
+                    {!! $options['message_qr'] !!}
+                </div>
+            </div>
+
         @endif
 
     </div>

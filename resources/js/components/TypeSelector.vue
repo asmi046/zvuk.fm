@@ -33,7 +33,7 @@
 
 
         <div class="clearWrapper">
-            <a href="#" @click.prevent="clearState" class="clr_btn graybtn">&#8634; Именить тип заказа</a>
+            <a href="#" @click.prevent="clearState" class="clr_btn graybtn">&#8634; Изменить тип заказа</a>
         </div>
     </div>
 
